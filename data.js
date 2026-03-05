@@ -488,7 +488,7 @@ const GUQUAN_YAYU_CONFIG = {
   name: '古泉祥晋',
   desc: '机制币拍卖数据追踪系统',
   apiBase: 'http://localhost:8000',
-  totalVolume: '¥5.48亿',
+  totalVolume: '¥300亿+',
   sources: [
     { name: '首席收藏', type: 'aggregator', records: '120万+', houses: '50+', volume: '¥300亿+' },
     { name: '北京诚轩', type: 'direct', records: '5万+', volume: '¥1.96亿' },
