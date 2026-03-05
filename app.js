@@ -103,15 +103,24 @@ function initNavScroll() {
 
 function toggleMobileNav() {
   const links = document.querySelector('.nav-links');
-  links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-  if (links.style.display === 'flex') {
-    Object.assign(links.style, {
-      position: 'absolute', top: '64px', left: '0', right: '0',
-      background: 'rgba(26,26,26,0.98)', flexDirection: 'column',
-      padding: '20px 24px', gap: '16px', borderBottom: '1px solid rgba(197,165,90,0.2)'
-    });
-  }
+  const btn = document.querySelector('.nav-mobile-btn');
+  links.classList.toggle('mobile-open');
+  btn.textContent = links.classList.contains('mobile-open') ? '✕' : '☰';
+  document.body.style.overflow = links.classList.contains('mobile-open') ? 'hidden' : '';
 }
+
+// Close mobile nav when clicking a link
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    const btn = document.querySelector('.nav-mobile-btn');
+    if (links.classList.contains('mobile-open')) {
+      links.classList.remove('mobile-open');
+      btn.textContent = '☰';
+      document.body.style.overflow = '';
+    }
+  });
+});
 
 // ===== Stats 点击跳转 =====
 function initStatsClick() {
