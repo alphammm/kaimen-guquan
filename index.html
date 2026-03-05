@@ -18,11 +18,12 @@
       <span class="nav-logo-text">开门古泉</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#catalog" class="active">钱币图鉴</a></li>
+      <li><a href="#famous" class="active">名誉品</a></li>
+      <li><a href="#catalog">钱币图鉴</a></li>
       <li><a href="#auction">拍卖纪录</a></li>
+      <li><a href="#guquan-yayu">古泉雅韵</a></li>
       <li><a href="#ai">AI鉴宝</a></li>
       <li><a href="#knowledge">泉识学堂</a></li>
-      <li><a href="#about">关于</a></li>
     </ul>
     <div class="nav-search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -36,13 +37,15 @@
 <section class="hero" id="home">
   <div class="hero-bg"></div>
   <div class="hero-ink"></div>
+  <div class="hero-coins-bg" id="heroCoins"></div>
   <div class="hero-border"></div>
   <div class="hero-content">
     <div class="hero-seal">
       <span class="hero-seal-text">开门<br>古泉</span>
     </div>
     <h1 class="hero-title">开门古泉</h1>
-    <p class="hero-subtitle">中国古钱币收藏鉴赏 · 全朝代数据库</p>
+    <p class="hero-subtitle">中国古钱币收藏鉴赏 · 博物馆级数据库</p>
+    <p class="hero-subtitle" style="font-size:13px;opacity:0.5;margin-top:4px;letter-spacing:3px;font-family:'Lato',sans-serif">KAIMEN GUQUAN · MUSEUM-GRADE NUMISMATIC DATABASE</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num" data-target="100" data-format="true">0</span>
@@ -53,7 +56,7 @@
         <span class="hero-stat-label">历史朝代</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-num" data-target="20" data-format="true">0</span>
+        <span class="hero-stat-num" data-target="2202" data-format="true">0</span>
         <span class="hero-stat-label">拍卖纪录</span>
       </div>
       <div class="hero-stat">
@@ -62,13 +65,27 @@
       </div>
     </div>
     <div class="hero-cta">
-      <a href="#catalog" class="btn-primary">浏览钱币图鉴</a>
-      <a href="#ai" class="btn-secondary">AI 鉴宝</a>
+      <a href="#famous" class="btn-primary">鉴赏名誉品</a>
+      <a href="#catalog" class="btn-secondary">浏览图鉴</a>
     </div>
   </div>
   <div class="hero-scroll">
     <span>向下探索</span>
     <span>▽</span>
+  </div>
+</section>
+
+<!-- ========== FAMOUS COINS 名誉品 ========== -->
+<section class="section section-warm" id="famous">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-line"></div>
+      <h2 class="section-title">名 誉 品</h2>
+      <p class="section-subtitle">传世名珍 · 方寸之间见千古</p>
+    </div>
+    <div class="famous-grid fade-up" id="famousGrid">
+      <!-- Rendered by JS -->
+    </div>
   </div>
 </section>
 
@@ -156,6 +173,13 @@
       <button class="auction-filter-btn" data-filter="嘉德">中国嘉德</button>
       <button class="auction-filter-btn" data-filter="诚轩">北京诚轩</button>
       <button class="auction-filter-btn" data-filter="Heritage">Heritage</button>
+      <button class="auction-filter-btn" data-filter="SBP">SBP</button>
+      <button class="auction-filter-btn" data-filter="泓盛">泓盛拍卖</button>
+      <button class="auction-filter-btn" data-filter="保利">北京保利</button>
+      <button class="auction-filter-btn" data-filter="西泠">西泠印社</button>
+      <button class="auction-filter-btn" data-filter="华夏">华夏古泉</button>
+      <button class="auction-filter-btn" data-filter="Champion">Champion</button>
+      <button class="auction-filter-btn" data-filter="SPINK">SPINK</button>
     </div>
 
     <div class="auction-table-wrapper fade-up">
@@ -175,6 +199,42 @@
           <!-- Rendered by JS -->
         </tbody>
       </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 古泉雅韵 SUB-SECTION ========== -->
+<section class="section section-yayu" id="guquan-yayu">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-line" style="background:linear-gradient(90deg, var(--gold), var(--cinnabar))"></div>
+      <h2 class="section-title" style="letter-spacing:12px">古泉雅韵</h2>
+      <p class="section-subtitle">机制币拍卖数据追踪 · 首席收藏 + 全球拍卖行直连</p>
+    </div>
+
+    <div class="yayu-intro fade-up">
+      <div class="yayu-desc">
+        <h3>机制币专业数据平台</h3>
+        <p>古泉雅韵是开门古泉旗下的机制币拍卖数据追踪系统，聚合首席收藏120万+拍卖记录，并直连Heritage、SBP、嘉德、诚轩、保利、西泠、华夏古泉等主要拍卖行，提供实时成交数据、价格走势分析和市场行情。</p>
+        <div class="yayu-features">
+          <span class="yayu-feature-tag">实时成交数据</span>
+          <span class="yayu-feature-tag">价格走势分析</span>
+          <span class="yayu-feature-tag">智能搜索</span>
+          <span class="yayu-feature-tag">评级对照</span>
+          <span class="yayu-feature-tag">市场行情</span>
+        </div>
+      </div>
+      <div class="yayu-sources" id="yayuSources">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- 机制币精选 -->
+    <div class="yayu-coins fade-up">
+      <h3 class="yayu-section-title">机制币精选</h3>
+      <div class="yayu-coin-grid" id="yayuCoinGrid">
+        <!-- Rendered by JS -->
+      </div>
     </div>
   </div>
 </section>
@@ -204,28 +264,28 @@
           <div class="ai-feature-icon">🔍</div>
           <div>
             <div class="ai-feature-title">智能识别</div>
-            <div class="ai-feature-desc">基于深度学习的钱币图像识别，覆盖先秦至民国全朝代。自动判断朝代、年号、版别。</div>
+            <div class="ai-feature-desc">基于深度学习的钱币图像识别，覆盖先秦至民国全朝代。</div>
           </div>
         </div>
         <div class="ai-feature">
           <div class="ai-feature-icon">⚖️</div>
           <div>
             <div class="ai-feature-title">真伪鉴定</div>
-            <div class="ai-feature-desc">分析铸造工艺、文字风格、锈色包浆。对比数据库中数万枚标准器物，给出真伪判断。</div>
+            <div class="ai-feature-desc">分析铸造工艺、文字风格、锈色包浆，对比数据库标准器物。</div>
           </div>
         </div>
         <div class="ai-feature">
           <div class="ai-feature-icon">💰</div>
           <div>
             <div class="ai-feature-title">智能估价</div>
-            <div class="ai-feature-desc">结合近年拍卖成交数据、品相评级和市场行情，给出合理的价格参考区间。</div>
+            <div class="ai-feature-desc">结合近年拍卖数据、品相评级和市场行情给出价格区间。</div>
           </div>
         </div>
         <div class="ai-feature">
           <div class="ai-feature-icon">📚</div>
           <div>
             <div class="ai-feature-title">版别解读</div>
-            <div class="ai-feature-desc">详细解读钱币版别特征，标注关键辨识点，提供铸造背景和历史故事。</div>
+            <div class="ai-feature-desc">详细解读版别特征，标注辨识点，提供铸造背景和历史故事。</div>
           </div>
         </div>
       </div>
@@ -248,7 +308,7 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">入门必读</span>
           <h3 class="knowledge-card-title">中国古钱币发展简史</h3>
-          <p class="knowledge-card-excerpt">从商代天然贝币到清末方孔钱，再到近代机制币。三千年中国货币演变，一文读懂古泉脉络。涵盖各朝代主要币制改革和代表性钱币。</p>
+          <p class="knowledge-card-excerpt">从商代天然贝币到清末方孔钱，再到近代机制币。三千年中国货币演变，一文读懂古泉脉络。</p>
         </div>
       </div>
       <div class="knowledge-card">
@@ -256,7 +316,7 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">鉴定技巧</span>
           <h3 class="knowledge-card-title">古钱币真伪鉴定十大要诀</h3>
-          <p class="knowledge-card-excerpt">看铜质、观锈色、审文字、验工艺。从包浆到声音，从铸口到穿孔，十个维度教你辨别古钱真伪。附大量实物对比图。</p>
+          <p class="knowledge-card-excerpt">看铜质、观锈色、审文字、验工艺。十个维度教你辨别古钱真伪。</p>
         </div>
       </div>
       <div class="knowledge-card">
@@ -264,7 +324,7 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">版别研究</span>
           <h3 class="knowledge-card-title">崇宁通宝版别大全图解</h3>
-          <p class="knowledge-card-excerpt">宋徽宗瘦金体御书崇宁通宝，版别多达200余种。大字、小字、抽示、铁母、美制，每一种都有独特的辨识特征和收藏价值。</p>
+          <p class="knowledge-card-excerpt">宋徽宗瘦金体御书崇宁通宝，版别多达200余种。大字、小字、铁母、美制各有特征。</p>
         </div>
       </div>
       <div class="knowledge-card">
@@ -272,7 +332,7 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">市场分析</span>
           <h3 class="knowledge-card-title">2024古钱币市场行情报告</h3>
-          <p class="knowledge-card-excerpt">全面分析2024年古钱币拍卖市场趋势。先秦刀布持续走高，宋钱名品受追捧，机制币市场分化加剧。附各品类涨跌数据。</p>
+          <p class="knowledge-card-excerpt">先秦刀布持续走高，宋钱名品受追捧，机制币市场分化加剧。</p>
         </div>
       </div>
       <div class="knowledge-card">
@@ -280,7 +340,7 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">专题研究</span>
           <h3 class="knowledge-card-title">王莽货币改制与钱币艺术</h3>
-          <p class="knowledge-card-excerpt">王莽四次币制改革，创造了中国钱币史上最具艺术性的一批钱币。一刀平五千、货泉、布泉，每一种都是铸造工艺的巅峰。</p>
+          <p class="knowledge-card-excerpt">王莽四次币制改革，创造了中国钱币史上最具艺术性的一批钱币。</p>
         </div>
       </div>
       <div class="knowledge-card">
@@ -288,14 +348,14 @@
         <div class="knowledge-card-body">
           <span class="knowledge-card-tag">收藏指南</span>
           <h3 class="knowledge-card-title">机制币入门：从袁大头开始</h3>
-          <p class="knowledge-card-excerpt">袁大头是中国机制银币收藏的入门首选。三年、八年、九年、十年各有特色。本文详解版别辨识、评级标准和投资建议。</p>
+          <p class="knowledge-card-excerpt">袁大头是中国机制银币收藏的入门首选。详解版别辨识和评级标准。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========== TIMELINE SECTION ========== -->
+<!-- ========== TIMELINE ========== -->
 <section class="section section-dark" id="about">
   <div class="container">
     <div class="section-header fade-up">
@@ -303,47 +363,45 @@
       <h2 class="section-title">历代钱制沿革</h2>
       <p class="section-subtitle">以币为鉴 · 三千年华夏文明</p>
     </div>
-
     <div class="fade-up" style="max-width:900px;margin:0 auto">
-      <!-- Timeline items -->
-      <div style="display:flex;gap:24px;margin-bottom:32px;padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0">
-        <div style="font-size:40px;flex-shrink:0">🐚</div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🐚</div>
         <div>
-          <h3 style="font-family:var(--font-brush);font-size:24px;color:var(--gold);margin-bottom:4px">先秦 · 多元并存</h3>
-          <p style="font-size:13px;color:rgba(245,240,232,0.4);margin-bottom:8px">约前2000年 - 前221年</p>
-          <p style="font-size:14px;color:rgba(245,240,232,0.7);line-height:1.8">贝币为中国最早货币。春秋战国时期，各国铸币各具特色：中原布币、齐燕刀币、楚国蚁鼻钱、秦国圜钱。四大货币体系并存，反映列国争雄的时代格局。</p>
+          <h3 class="timeline-title">先秦 · 多元并存</h3>
+          <p class="timeline-years">约前2000年 - 前221年</p>
+          <p class="timeline-text">贝币为中国最早货币。春秋战国时期，各国铸币各具特色：中原布币、齐燕刀币、楚国蚁鼻钱、秦国圜钱。</p>
         </div>
       </div>
-      <div style="display:flex;gap:24px;margin-bottom:32px;padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0">
-        <div style="font-size:40px;flex-shrink:0">⚖️</div>
+      <div class="timeline-item">
+        <div class="timeline-icon">⚖️</div>
         <div>
-          <h3 style="font-family:var(--font-brush);font-size:24px;color:var(--gold);margin-bottom:4px">秦汉 · 统一钱制</h3>
-          <p style="font-size:13px;color:rgba(245,240,232,0.4);margin-bottom:8px">前221年 - 220年</p>
-          <p style="font-size:14px;color:rgba(245,240,232,0.7);line-height:1.8">秦始皇统一货币为"半两"，确立圆形方孔制式。汉武帝铸"五铢"，成为中国历史上流通时间最长的钱币（前118年-621年）。王莽新朝四次币改，创造出精美绝伦的货泉系列。</p>
+          <h3 class="timeline-title">秦汉 · 统一钱制</h3>
+          <p class="timeline-years">前221年 - 220年</p>
+          <p class="timeline-text">秦始皇统一货币为"半两"。汉武帝铸"五铢"，流通七百余年。王莽新朝创造精美绝伦的货泉系列。</p>
         </div>
       </div>
-      <div style="display:flex;gap:24px;margin-bottom:32px;padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0">
-        <div style="font-size:40px;flex-shrink:0">🌙</div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🌙</div>
         <div>
-          <h3 style="font-family:var(--font-brush);font-size:24px;color:var(--gold);margin-bottom:4px">唐宋 · 通宝时代</h3>
-          <p style="font-size:13px;color:rgba(245,240,232,0.4);margin-bottom:8px">618年 - 1279年</p>
-          <p style="font-size:14px;color:rgba(245,240,232,0.7);line-height:1.8">唐高祖废五铢铸"开元通宝"，开创"通宝"纪年新制。两宋钱币书法登峰造极：太宗御书、徽宗瘦金体。崇宁通宝被誉为"中国最美钱币"。宋代还首创纸币"交子"。</p>
+          <h3 class="timeline-title">唐宋 · 通宝时代</h3>
+          <p class="timeline-years">618年 - 1279年</p>
+          <p class="timeline-text">唐高祖废五铢铸"开元通宝"。两宋钱币书法登峰造极：崇宁通宝被誉为"中国最美钱币"。</p>
         </div>
       </div>
-      <div style="display:flex;gap:24px;margin-bottom:32px;padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0">
-        <div style="font-size:40px;flex-shrink:0">🐉</div>
+      <div class="timeline-item">
+        <div class="timeline-icon">🐉</div>
         <div>
-          <h3 style="font-family:var(--font-brush);font-size:24px;color:var(--gold);margin-bottom:4px">明清 · 制钱定制</h3>
-          <p style="font-size:13px;color:rgba(245,240,232,0.4);margin-bottom:8px">1368年 - 1911年</p>
-          <p style="font-size:14px;color:rgba(245,240,232,0.7);line-height:1.8">明代确立"年号钱"制度，洪武至崇祯朝朝铸钱。清代制钱精美，顺治五式确立满汉文体系。咸丰朝因太平天国之乱铸造大量虚值大钱。清末引入机器铸造，方孔钱走向终结。</p>
+          <h3 class="timeline-title">明清 · 制钱定制</h3>
+          <p class="timeline-years">1368年 - 1911年</p>
+          <p class="timeline-text">明代确立年号钱制度。清代制钱精美，咸丰朝铸大量虚值大钱。清末引入机器铸造，方孔钱走向终结。</p>
         </div>
       </div>
-      <div style="display:flex;gap:24px;padding:24px;border-left:3px solid var(--gold);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0">
-        <div style="font-size:40px;flex-shrink:0">⚙️</div>
+      <div class="timeline-item">
+        <div class="timeline-icon">⚙️</div>
         <div>
-          <h3 style="font-family:var(--font-brush);font-size:24px;color:var(--gold);margin-bottom:4px">近代 · 机制币时代</h3>
-          <p style="font-size:13px;color:rgba(245,240,232,0.4);margin-bottom:8px">1889年 - 1949年</p>
-          <p style="font-size:14px;color:rgba(245,240,232,0.7);line-height:1.8">广东率先引进英国造币机器，铸造光绪元宝。袁世凯像银元（袁大头）成为流通最广的银币。民国军阀混战，各省各铸，留下大量珍稀纪念币。中国钱币由此进入现代。</p>
+          <h3 class="timeline-title">近代 · 机制币时代</h3>
+          <p class="timeline-years">1889年 - 1949年</p>
+          <p class="timeline-text">广东率先引进英国造币机器。袁世凯像银元成为流通最广的银币。各省各铸，留下大量珍稀品。</p>
         </div>
       </div>
     </div>
@@ -360,32 +418,29 @@
       </div>
       <div class="footer-col">
         <h4>钱币图鉴</h4>
-        <a href="#">先秦刀布</a>
-        <a href="#">秦汉五铢</a>
-        <a href="#">唐宋通宝</a>
-        <a href="#">明清制钱</a>
-        <a href="#">机制银币</a>
-        <a href="#">铜元大全</a>
+        <a href="#catalog">先秦刀布</a>
+        <a href="#catalog">秦汉五铢</a>
+        <a href="#catalog">唐宋通宝</a>
+        <a href="#catalog">明清制钱</a>
+        <a href="#catalog">机制银币</a>
       </div>
       <div class="footer-col">
         <h4>工具服务</h4>
-        <a href="#">AI 鉴宝</a>
-        <a href="#">拍卖纪录</a>
-        <a href="#">价格走势</a>
+        <a href="#ai">AI 鉴宝</a>
+        <a href="#auction">拍卖纪录</a>
+        <a href="#guquan-yayu">古泉雅韵</a>
         <a href="#">评级对照</a>
-        <a href="#">藏品管理</a>
       </div>
       <div class="footer-col">
         <h4>泉识学堂</h4>
-        <a href="#">入门指南</a>
-        <a href="#">鉴定技巧</a>
-        <a href="#">版别研究</a>
-        <a href="#">市场行情</a>
-        <a href="#">泉友论坛</a>
+        <a href="#knowledge">入门指南</a>
+        <a href="#knowledge">鉴定技巧</a>
+        <a href="#knowledge">版别研究</a>
+        <a href="#knowledge">市场行情</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 开门古泉 KaimenGuquan.com — 弘扬中华泉币文化</span>
+      <span>&copy; 2024 开门古泉 KaimenGuquan.com — 弘扬中华泉币文化</span>
       <span style="font-family:var(--font-song);letter-spacing:2px;color:rgba(245,240,232,0.2)">方圆之间 · 见证华夏</span>
     </div>
   </div>
