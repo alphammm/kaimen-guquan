@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>开门古泉 — 中国古钱币收藏数据库</title>
+  <title>祥晋古泉 — 中国古钱币收藏数据库</title>
   <meta name="description" content="中国最全古钱币收藏数据库，涵盖先秦至民国历代古钱币及机制币，AI鉴宝，拍卖成交纪录">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
   <link rel="stylesheet" href="styles.css">
@@ -15,7 +15,7 @@
   <div class="nav-inner">
     <a href="#" class="nav-logo">
       <div class="nav-logo-icon">泉</div>
-      <span class="nav-logo-text">开门古泉</span>
+      <span class="nav-logo-text">祥晋古泉</span>
     </a>
     <ul class="nav-links">
       <li><a href="#famous" class="active">名誉品</a></li>
@@ -40,12 +40,9 @@
   <div class="hero-coins-bg" id="heroCoins"></div>
   <div class="hero-border"></div>
   <div class="hero-content">
-    <div class="hero-seal">
-      <span class="hero-seal-text">开门<br>古泉</span>
-    </div>
-    <h1 class="hero-title">开门古泉</h1>
+    <h1 class="hero-title">祥晋古泉</h1>
     <p class="hero-subtitle">中国古钱币收藏鉴赏 · 博物馆级数据库</p>
-    <p class="hero-subtitle" style="font-size:13px;opacity:0.5;margin-top:4px;letter-spacing:3px;font-family:'Lato',sans-serif">KAIMEN GUQUAN · MUSEUM-GRADE NUMISMATIC DATABASE</p>
+    <p class="hero-subtitle" style="font-size:13px;opacity:0.5;margin-top:4px;letter-spacing:3px;font-family:'Lato',sans-serif">XIANGJIN GUQUAN · MUSEUM-GRADE NUMISMATIC DATABASE</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num" data-target="100" data-format="true">0</span>
@@ -56,7 +53,7 @@
         <span class="hero-stat-label">历史朝代</span>
       </div>
       <div class="hero-stat">
-        <span class="hero-stat-num" data-target="2202" data-format="true">0</span>
+        <span class="hero-stat-num" data-target="171" data-format="true">0</span>
         <span class="hero-stat-label">拍卖纪录</span>
       </div>
       <div class="hero-stat">
@@ -209,19 +206,19 @@
     <div class="section-header fade-up">
       <div class="section-header-line" style="background:linear-gradient(90deg, var(--gold), var(--cinnabar))"></div>
       <h2 class="section-title" style="letter-spacing:12px">古泉雅韵</h2>
-      <p class="section-subtitle">机制币拍卖数据追踪 · 首席收藏 + 全球拍卖行直连</p>
+      <p class="section-subtitle">机制币拍卖数据追踪 · 首席收藏 + 全球拍卖行直连 · 收录成交总额 ¥5.48亿</p>
     </div>
 
     <div class="yayu-intro fade-up">
       <div class="yayu-desc">
         <h3>机制币专业数据平台</h3>
-        <p>古泉雅韵是开门古泉旗下的机制币拍卖数据追踪系统，聚合首席收藏120万+拍卖记录，并直连Heritage、SBP、嘉德、诚轩、保利、西泠、华夏古泉等主要拍卖行，提供实时成交数据、价格走势分析和市场行情。</p>
+        <p>古泉雅韵是祥晋古泉旗下的机制币拍卖数据追踪系统，聚合首席收藏120万+拍卖记录，并直连Heritage、SBP、嘉德、诚轩、保利、西泠、华夏古泉等主要拍卖行，提供实时成交数据、价格走势分析和市场行情。</p>
         <div class="yayu-features">
-          <span class="yayu-feature-tag">实时成交数据</span>
-          <span class="yayu-feature-tag">价格走势分析</span>
-          <span class="yayu-feature-tag">智能搜索</span>
-          <span class="yayu-feature-tag">评级对照</span>
-          <span class="yayu-feature-tag">市场行情</span>
+          <span class="yayu-feature-tag" onclick="document.getElementById('auction').scrollIntoView({behavior:'smooth'})">实时成交数据</span>
+          <span class="yayu-feature-tag" onclick="openYayuFeature('price-trend')">价格走势分析</span>
+          <span class="yayu-feature-tag" onclick="document.querySelector('.search-input').focus();document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">智能搜索</span>
+          <span class="yayu-feature-tag" onclick="openYayuFeature('grade')">评级对照</span>
+          <span class="yayu-feature-tag" onclick="openYayuFeature('market')">市场行情</span>
         </div>
       </div>
       <div class="yayu-sources" id="yayuSources">
@@ -413,8 +410,8 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <h3>开门古泉</h3>
-        <p>中国古钱币收藏鉴赏数据库<br>纵览三千年 · 方圆之间见乾坤<br><br>"开门"取自泉界术语"开门见山"，<br>意为一眼即可辨认的真品好泉。</p>
+        <h3>祥晋古泉</h3>
+        <p>中国古钱币收藏鉴赏数据库<br>纵览三千年 · 方圆之间见乾坤<br><br>"祥晋"寓意吉祥晋升，<br>以祥瑞之意承古泉之美。</p>
       </div>
       <div class="footer-col">
         <h4>钱币图鉴</h4>
@@ -440,7 +437,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2024 开门古泉 KaimenGuquan.com — 弘扬中华泉币文化</span>
+      <span>&copy; 2024 祥晋古泉 XiangjinGuquan.com — 弘扬中华泉币文化</span>
       <span style="font-family:var(--font-song);letter-spacing:2px;color:rgba(245,240,232,0.2)">方圆之间 · 见证华夏</span>
     </div>
   </div>

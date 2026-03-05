@@ -1,4 +1,4 @@
-# 开门古泉 — 中国古钱币收藏数据库
+# 祥晋古泉 — 中国古钱币收藏数据库
 
 > Chinese Ancient Coin Collection Database
 

@@ -1,5 +1,5 @@
 // ============================================
-// 开门古泉 — 全交互逻辑
+// 祥晋古泉 — 全交互逻辑
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function initHeroCoins() {
   const container = document.getElementById('heroCoins');
   if (!container || typeof IMG === 'undefined') return;
-  // 中央大龙洋背景
+  // 中央龙洋背景（广东省造光绪元宝）
   container.innerHTML = `
-    <img src="${IMG.kwangtungDragon}" style="position:absolute;width:min(600px,80vw);height:auto;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.08;filter:sepia(0.2) brightness(1.3);border-radius:50%;animation:none">
+    <img src="${IMG.kwangtungDragon}" style="position:absolute;width:min(700px,90vw);height:auto;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.12;filter:sepia(0.3) brightness(1.2) contrast(1.1);border-radius:50%;animation:none" onerror="this.style.display='none'">
   `;
   // 浮动小钱币
   const coinImgs = [IMG.chongNing, IMG.yuanShiKai, IMG.wangMangYiDao, IMG.daQingYinBi, IMG.kaiYuan, IMG.guangXu];
@@ -416,6 +416,7 @@ function renderYayuSources() {
       <span class="yayu-source-dot ${s.type}"></span>
       <span class="yayu-source-name">${s.name}</span>
       <span class="yayu-source-count">${s.records}</span>
+      ${s.volume ? `<span class="yayu-source-volume">${s.volume}</span>` : ''}
     </div>
   `).join('');
 }
@@ -439,6 +440,7 @@ function openSourceDetail(index) {
       <div class="modal-detail-grid" style="margin-bottom:24px">
         <div class="modal-detail-item"><span class="modal-detail-label">数据来源类型</span><span class="modal-detail-value">${s.type==='aggregator'?'聚合平台 (含50+拍卖行)':'拍卖行直连'}</span></div>
         <div class="modal-detail-item"><span class="modal-detail-label">收录记录数</span><span class="modal-detail-value" style="color:#8B3A3A">${s.records}</span></div>
+        ${s.volume ? `<div class="modal-detail-item"><span class="modal-detail-label">成交总额</span><span class="modal-detail-value" style="color:#8B3A3A;font-weight:700">${s.volume}</span></div>` : ''}
         ${s.houses ? `<div class="modal-detail-item" style="grid-column:span 2"><span class="modal-detail-label">覆盖拍卖行</span><span class="modal-detail-value">${s.houses}家</span></div>` : ''}
       </div>
       ${records.length > 0 ? `
@@ -453,6 +455,94 @@ function openSourceDetail(index) {
       ` : '<p style="color:#888;font-size:14px">暂无来自该来源的成交记录展示</p>'}
     </div>
   `);
+}
+
+function openYayuFeature(type) {
+  const content = {
+    'price-trend': `
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div style="padding:32px">
+        <h2 style="font-family:var(--font-brush);font-size:28px;color:#2C2418;margin-bottom:16px">价格走势分析</h2>
+        <p style="font-size:14px;line-height:1.8;color:#4A4A4A;margin-bottom:24px">基于首席收藏120万+拍卖成交记录，追踪各品种历年价格变动趋势。</p>
+        <div class="modal-section"><h4>年度Top1成交价走势 (万元)</h4>
+        <div style="display:flex;align-items:flex-end;gap:12px;height:200px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,0.06)">
+          ${[
+            {y:'2021',v:2599,c:'#8B3A3A'},
+            {y:'2022',v:4657,c:'#C5A55A'},
+            {y:'2023',v:1840,c:'#8B3A3A'},
+            {y:'2024',v:1932,c:'#8B3A3A'},
+            {y:'2025',v:3335,c:'#4A7C59'}
+          ].map(d => {
+            const h = Math.round(d.v / 4657 * 160);
+            return '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px"><div style="font-size:11px;font-weight:700;color:'+d.c+'">'+d.v+'</div><div style="width:100%;max-width:48px;height:'+h+'px;background:'+d.c+';border-radius:4px 4px 0 0;transition:height 0.3s"></div><div style="font-size:11px;color:#6B5E4F">'+d.y+'</div></div>';
+          }).join('')}
+        </div></div>
+        <div class="modal-section" style="margin-top:20px"><h4>近年市场趋势</h4>
+        <div style="font-size:14px;line-height:2;color:#4A4A4A">
+          <p><b>2022年·巅峰之年：</b>奉天癸卯一两以4657万创历史新高，张作霖伍拾圆金币3450万紧随其后。Top20中6席属于2022年。</p>
+          <p><b>2023年·张作霖年：</b>张作霖系列持续霸榜，民国17年版1840万领衔。地球双旗等珍品热度不减。</p>
+          <p><b>2024年·结构分化：</b>顶级珍品价格坚挺(上海壹两1932万)，但中端品种有所回调。古钱(崇宁铁母、咸丰大钱)表现活跃。</p>
+          <p><b>2025年·金币崛起：</b>张作霖伍拾圆金币再度刷新纪录至3335万(中贸圣佳)，金币板块成为新热点。</p>
+        </div></div>
+      </div>`,
+    'grade': `
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div style="padding:32px">
+        <h2 style="font-family:var(--font-brush);font-size:28px;color:#2C2418;margin-bottom:16px">评级对照表</h2>
+        <p style="font-size:14px;line-height:1.8;color:#4A4A4A;margin-bottom:24px">PCGS/NGC国际评级标准 与 中国传统品相术语对照</p>
+        <div class="modal-detail-grid" style="gap:8px">
+          <div class="modal-detail-item"><span class="modal-detail-label">MS/SP 70</span><span class="modal-detail-value">完美未流通</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">MS/SP 65-69</span><span class="modal-detail-value">精制未流通 (Gem)</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">MS/SP 63-64</span><span class="modal-detail-value">优选未流通 (Choice)</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">MS/SP 60-62</span><span class="modal-detail-value">未流通 (Mint State)</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">AU 55-58</span><span class="modal-detail-value">近未流通 (About Unc)</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">XF 40-45</span><span class="modal-detail-value">极美品</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">VF 25-35</span><span class="modal-detail-value">美品</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">F 12-15</span><span class="modal-detail-value">上品</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">VG 8-10</span><span class="modal-detail-value">中品</span></div>
+          <div class="modal-detail-item"><span class="modal-detail-label">G 4-6</span><span class="modal-detail-value">下品</span></div>
+        </div>
+        <div style="margin-top:20px;font-size:13px;color:#6B5E4F;line-height:1.8">
+          <p><b>SP (Specimen)</b> = 样币/试铸币专用评级</p>
+          <p><b>PF (Proof)</b> = 精制币评级</p>
+          <p><b>华夏古泉评级</b> = 中国古钱专用，满分100分，80分以上为极美品</p>
+        </div>
+      </div>`,
+    'market': (() => {
+      // Compute house stats dynamically
+      const houseTotals = {};
+      AUCTION_RECORDS.forEach(r => {
+        const p = parseInt(r.price.replace(/[¥,]/g, ''));
+        const h = r.house.replace(/\s*\(.*\)/, '');
+        if (!houseTotals[h]) houseTotals[h] = { count: 0, total: 0 };
+        houseTotals[h].count++;
+        houseTotals[h].total += p;
+      });
+      const sorted = Object.entries(houseTotals).sort((a,b) => b[1].total - a[1].total).slice(0, 8);
+      const maxTotal = sorted[0][1].total;
+      const houseChart = sorted.map(([name, d]) => {
+        const w = Math.round(d.total / maxTotal * 100);
+        return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="width:80px;font-size:12px;text-align:right;color:#4A4A4A;flex-shrink:0">' + name.slice(0,6) + '</div><div style="flex:1;background:rgba(0,0,0,0.04);border-radius:4px;height:22px;overflow:hidden"><div style="width:' + w + '%;height:100%;background:linear-gradient(90deg,#8B3A3A,#C5A55A);border-radius:4px"></div></div><div style="font-size:11px;color:#8B3A3A;font-weight:600;width:70px;flex-shrink:0">¥' + (d.total/10000).toFixed(0) + '万</div></div>';
+      }).join('');
+      const grandTotal = Object.values(houseTotals).reduce((s,d) => s + d.total, 0);
+      return `
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div style="padding:32px">
+        <h2 style="font-family:var(--font-brush);font-size:28px;color:#2C2418;margin-bottom:16px">市场行情</h2>
+        <p style="font-size:14px;color:#4A4A4A;margin-bottom:8px">收录成交记录 <b>${AUCTION_RECORDS.length}</b> 笔 · 总成交额 <b style="color:#8B3A3A">¥${(grandTotal/100000000).toFixed(2)}亿</b></p>
+        <div class="modal-section"><h4>各拍卖行成交额</h4>${houseChart}</div>
+        <div class="modal-section" style="margin-top:20px"><h4>Top20成交分布</h4>
+        <div style="font-size:14px;line-height:2;color:#4A4A4A">
+          <p><b>按币种：</b>张作霖系列占7席(35%)，户部一两占3席，上海壹两占2席，孙中山地球占2席</p>
+          <p><b>按拍卖行：</b>北京诚轩7席(已于2024年停拍)，泓盛3席，SBP 2席，泰星2席</p>
+          <p><b>按年份：</b>2022年6席(巅峰)，2021年5席，2023年4席，2024年2席，2025年1席</p>
+          <p><b>清代vs民国：</b>各占10席(50:50)</p>
+          <p><b>价格门槛：</b>进入Top20需¥1150万以上</p>
+        </div></div>
+      </div>`;
+    })()
+  };
+  if (content[type]) showModal(content[type]);
 }
 
 function renderYayuCoins() {
@@ -512,7 +602,7 @@ const KNOWLEDGE_ARTICLES = [
     <h5>先秦钱币</h5><p>先秦刀布币价格持续攀升，三孔布以420万成交创下新高。齐大刀、郢爰等名品表现强劲。</p>
     <h5>宋钱</h5><p>崇宁通宝铁母以350万成交，大观通宝折十铁母185万。宋代御书钱成为热门收藏方向。靖康通宝依然是两宋钱币中的"天花板"。</p>
     <h5>清钱</h5><p>咸丰大钱市场活跃，宝泉当千520万元成交。雍正通宝各局持续走高，成套收藏需求旺盛。</p>
-    <h5>机制币</h5><p>张作霖大元帅以8970万元刷新中国钱币拍卖纪录。袁大头签字版等顶级珍品价格坚挺。普通版袁大头、船洋等大众品种价格回调。</p>
+    <h5>机制币</h5><p>奉天癸卯一两以4657万元蝉联中国钱币拍卖纪录榜首(2022年诚轩)。张作霖系列持续霸榜Top10。袁大头签字版等顶级珍品价格坚挺。普通版袁大头、船洋等大众品种价格回调。</p>
     <h5>投资建议</h5><p>重品质、重版别、重传承。名家旧藏、评级高分币溢价明显。避免追高普通品种。</p>` },
   { tag: '专题研究', title: '王莽货币改制与钱币艺术', icon: '🏛️',
     content: `<p>王莽（公元9-23年）在位仅14年，却进行了四次大规模货币改革，创造了中国钱币史上最具艺术性的一批钱币。</p>

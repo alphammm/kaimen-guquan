@@ -1,5 +1,5 @@
 /* ============================================
-   开门古泉 — 中国古钱币收藏数据库
+   祥晋古泉 — 中国古钱币收藏数据库
    Ancient Chinese Aesthetic Design System
    ============================================ */
 
@@ -46,7 +46,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 80px; }
 
 body {
   font-family: var(--font-sans);
@@ -1397,6 +1397,13 @@ body::before {
   font-weight: 500;
   color: var(--gold);
   letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.yayu-feature-tag:hover {
+  background: rgba(197,165,90,0.25);
+  border-color: var(--gold);
+  transform: translateY(-1px);
 }
 
 .yayu-sources {
@@ -1442,6 +1449,12 @@ body::before {
   font-size: 11px;
   color: var(--ink-medium);
   margin-left: auto;
+}
+.yayu-source-volume {
+  font-size: 11px;
+  color: var(--cinnabar);
+  font-weight: 600;
+  margin-left: 8px;
 }
 
 .yayu-section-title {
