@@ -943,3 +943,87 @@ function animateCount(el, start, end, duration) {
   }
   requestAnimationFrame(update);
 }
+
+// ===== AI Chat Agent =====
+const chatHistory = [];
+
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const fab = document.getElementById('chatFab');
+  const isOpen = panel.classList.toggle('open');
+  fab.classList.toggle('hidden', isOpen);
+  if (isOpen) {
+    document.getElementById('chatInput').focus();
+  }
+}
+
+function sendSuggestion(text) {
+  document.getElementById('chatInput').value = text;
+  // Hide suggestions after first use
+  document.getElementById('chatSuggestions').style.display = 'none';
+  sendChat();
+}
+
+async function sendChat() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  input.value = '';
+  appendMsg('user', msg);
+  chatHistory.push({ role: 'user', content: msg });
+
+  // Show typing indicator
+  const typing = showTyping();
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: chatHistory }),
+    });
+
+    removeTyping(typing);
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || 'Request failed');
+    }
+
+    const data = await res.json();
+    const reply = data.reply || '抱歉，我暂时无法回答。请稍后再试。';
+    appendMsg('ai', reply);
+    chatHistory.push({ role: 'assistant', content: reply });
+  } catch (err) {
+    removeTyping(typing);
+    console.error('Chat error:', err);
+    appendMsg('ai', '网络连接异常，请稍后再试。');
+  }
+}
+
+function appendMsg(role, text) {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `chat-msg chat-msg-${role}`;
+  // Simple markdown: **bold**, newlines
+  const formatted = text
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n/g, '<br>');
+  div.innerHTML = `<div class="chat-bubble">${formatted}</div>`;
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+}
+
+function showTyping() {
+  const container = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-typing';
+  div.innerHTML = '<span></span><span></span><span></span>';
+  container.appendChild(div);
+  container.scrollTop = container.scrollHeight;
+  return div;
+}
+
+function removeTyping(el) {
+  if (el && el.parentNode) el.parentNode.removeChild(el);
+}

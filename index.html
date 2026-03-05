@@ -548,6 +548,41 @@
   </div>
 </div>
 
+<!-- ========== AI AGENT CHAT ========== -->
+<div class="chat-fab" id="chatFab" onclick="toggleChat()">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+</div>
+
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <img src="img/chunhua-shuangfo-back.jpg" class="chat-avatar" alt="">
+      <div>
+        <div class="chat-header-name">祥晋 AI</div>
+        <div class="chat-header-sub">古钱币鉴赏顾问</div>
+      </div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">&times;</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-msg chat-msg-ai">
+      <div class="chat-bubble">您好！我是祥晋，您的 AI 古钱币顾问。<br><br>我可以帮您鉴定钱币、查询拍卖价格、讲解历史背景。请问有什么可以帮您的？</div>
+    </div>
+  </div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button onclick="sendSuggestion('袁大头现在市场价多少？')">袁大头市场价</button>
+    <button onclick="sendSuggestion('推荐入门收藏的古钱币')">入门推荐</button>
+    <button onclick="sendSuggestion('崇宁通宝有哪些版别？')">崇宁版别</button>
+    <button onclick="sendSuggestion('如何鉴别古钱币真伪？')">鉴别真伪</button>
+  </div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chatInput" placeholder="输入您的问题..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button class="chat-send" id="chatSend" onclick="sendChat()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
 <!-- Scripts -->
 <script src="data.js"></script>
 <script src="app.js"></script>
