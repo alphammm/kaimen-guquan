@@ -381,7 +381,8 @@ function findCoinImg(r) {
   if (r.coin.includes('西藏') || r.coin.includes('雪岗')) return IMG.xueGang;
   if (r.coin.includes('新疆')) return IMG.xinjiangXiangYin;
   if (r.coin.includes('上海一两') || r.coin.includes('上海壹两')) return IMG.shanghaiTael;
-  if (r.coin.includes('广东') || r.coin.includes('双龙寿')) return IMG.kwangtungDragon;
+  if (r.coin.includes('双龙寿') || r.coin.includes('寿字壹两')) return IMG.shuangLongShou;
+  if (r.coin.includes('广东')) return IMG.kwangtungDragon;
   if (r.coin.includes('湖北')) return IMG.hubeiSilver;
   if (r.coin.includes('北洋')) return IMG.guangxuSilver;
   if (r.coin.includes('造币总厂')) return IMG.guangxuDragon;
@@ -402,6 +403,7 @@ function findCoinImg(r) {
   if (r.coin.includes('淳化')) return IMG.chunhuaBack;
   if (r.coin.includes('川陕') || r.coin.includes('川字')) return IMG.chuanYang;
   if (r.coin.includes('大清铜')) return IMG.daQingCopper;
+  if (r.coin.includes('大清金')) return IMG.daQingJinBi;
   // Dynasty-level fallbacks
   if (r.dynasty === '机制币') return IMG.guangXu;
   if (r.dynasty === '民国') return IMG.yuanShiKai;
