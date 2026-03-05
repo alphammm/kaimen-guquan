@@ -114,15 +114,9 @@ body::before {
 .nav-logo-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  color: var(--ink-black);
-  font-family: var(--font-brush);
-  font-weight: bold;
+  object-fit: cover;
+  filter: drop-shadow(0 0 6px rgba(197,165,90,0.4));
 }
 
 .nav-logo-text {
@@ -202,55 +196,55 @@ body::before {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: var(--deep-red);
+  background: #0c0a08;
   overflow: hidden;
 }
 
-.hero-bg {
+/* 寿字双龙全屏照片背景 */
+.hero-photo-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 25% 35%, rgba(197,165,90,0.12) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 65%, rgba(92,35,38,0.8) 0%, transparent 55%),
-    linear-gradient(180deg, #2D1418 0%, #431B1F 30%, #5C2326 50%, #431B1F 70%, #2D1418 100%);
+  z-index: 0;
 }
 
-/* 博物馆灯光效果 */
-.hero-ink {
+.hero-photo {
   position: absolute;
-  inset: 0;
-  opacity: 0.08;
-  background-image:
-    radial-gradient(ellipse 500px 400px at 50% 45%, rgba(197,165,90,0.6), transparent),
-    radial-gradient(ellipse 300px 200px at 20% 70%, rgba(255,255,255,0.3), transparent),
-    radial-gradient(ellipse 300px 200px at 80% 30%, rgba(255,255,255,0.3), transparent);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: heroPhotoFade 18s ease-in-out infinite;
 }
 
-/* 浮动钱币展示 */
-.hero-coins-bg {
+.hero-photo-1 {
+  animation-delay: 0s;
+  object-position: center 40%;
+}
+
+.hero-photo-2 {
+  animation-delay: 6s;
+  object-position: center center;
+}
+
+.hero-photo-3 {
+  animation-delay: 12s;
+  object-position: center 35%;
+}
+
+@keyframes heroPhotoFade {
+  0%, 100% { opacity: 0; }
+  8%, 28% { opacity: 1; }
+  36% { opacity: 0; }
+}
+
+/* Dark overlay with vignette for text readability */
+.hero-photo-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: none;
-}
-.hero-coins-bg img {
-  position: absolute;
-  opacity: 0.12;
-  filter: sepia(0.3) brightness(1.2);
-  border-radius: 50%;
-  animation: floatCoin 20s ease-in-out infinite;
-}
-.hero-coins-bg img:nth-child(1) { width: 120px; top: 10%; left: 5%; animation-delay: 0s; }
-.hero-coins-bg img:nth-child(2) { width: 90px; top: 60%; left: 8%; animation-delay: -4s; }
-.hero-coins-bg img:nth-child(3) { width: 150px; top: 15%; right: 5%; animation-delay: -8s; }
-.hero-coins-bg img:nth-child(4) { width: 100px; top: 65%; right: 8%; animation-delay: -12s; }
-.hero-coins-bg img:nth-child(5) { width: 80px; top: 35%; left: 15%; animation-delay: -6s; }
-.hero-coins-bg img:nth-child(6) { width: 110px; top: 40%; right: 15%; animation-delay: -16s; }
-@keyframes floatCoin {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-15px) rotate(3deg); }
-  50% { transform: translateY(0) rotate(0deg); }
-  75% { transform: translateY(15px) rotate(-3deg); }
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(12,10,8,0.35) 0%, rgba(12,10,8,0.7) 60%, rgba(12,10,8,0.92) 100%),
+    linear-gradient(180deg, rgba(12,10,8,0.6) 0%, rgba(12,10,8,0.2) 30%, rgba(12,10,8,0.2) 70%, rgba(12,10,8,0.8) 100%);
 }
 
 /* 回纹边框 */
@@ -275,36 +269,24 @@ body::before {
   padding: 0 24px;
 }
 
-.hero-seal {
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 40px;
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: rotate(-5deg);
-  position: relative;
-  box-shadow: 0 0 30px rgba(197,165,90,0.2), inset 0 0 20px rgba(197,165,90,0.1);
-}
-
-.hero-seal-text {
-  font-family: var(--font-brush);
-  color: var(--gold);
-  font-size: 38px;
-  line-height: 1.1;
-  letter-spacing: 4px;
-  text-shadow: 0 0 20px rgba(197,165,90,0.3);
+.hero-label {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: rgba(197,165,90,0.6);
+  letter-spacing: 5px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .hero-title {
   font-family: var(--font-brush);
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(56px, 10vw, 120px);
   color: var(--gold);
-  letter-spacing: 16px;
-  margin-bottom: 16px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 0 60px rgba(197,165,90,0.3);
+  letter-spacing: 20px;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 0 80px rgba(197,165,90,0.25);
+  line-height: 1;
 }
 
 .hero-subtitle {
@@ -312,7 +294,23 @@ body::before {
   font-size: clamp(16px, 2.5vw, 22px);
   color: rgba(245,240,232,0.6);
   letter-spacing: 8px;
-  margin-bottom: 48px;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.hero-divider {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 24px auto;
+}
+
+.hero-featured-text {
+  font-family: var(--font-song);
+  font-size: 13px;
+  color: rgba(197,165,90,0.5);
+  letter-spacing: 3px;
+  margin-bottom: 40px;
   font-weight: 400;
 }
 
@@ -413,6 +411,94 @@ body::before {
 @keyframes float {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(-8px); }
+}
+
+/* (hero showcase removed — replaced by photo bg) */
+
+/* ============ AUCTION SHOWCASE ============ */
+.auction-showcase {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.auction-showcase-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(197,165,90,0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auction-showcase-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(197,165,90,0.1);
+}
+
+.auction-showcase-card .asc-img {
+  width: 100%;
+  aspect-ratio: 1.2;
+  background: linear-gradient(135deg, #1a1714, #2d2520);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.auction-showcase-card .asc-img img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
+.auction-showcase-card .asc-body {
+  padding: 16px 20px;
+}
+
+.auction-showcase-card .asc-name {
+  font-family: var(--font-song);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rice-white);
+  margin-bottom: 6px;
+}
+
+.auction-showcase-card .asc-meta {
+  font-size: 12px;
+  color: rgba(245,240,232,0.4);
+  margin-bottom: 8px;
+}
+
+.auction-showcase-card .asc-price {
+  font-family: var(--font-song);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cinnabar);
+}
+
+.auction-showcase-card .asc-rank {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: var(--ink-black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-song);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.auction-showcase-card {
+  position: relative;
 }
 
 /* ============ SECTION COMMON ============ */
@@ -789,7 +875,7 @@ body::before {
 /* ============ AI APPRAISAL ============ */
 .ai-section {
   padding: var(--section-padding);
-  background: linear-gradient(135deg, #1A1714 0%, #2D1418 50%, #1A1714 100%);
+  background: linear-gradient(135deg, #0a0e14 0%, #121820 30%, #0d1117 60%, #1A1714 100%);
   position: relative;
   overflow: hidden;
 }
@@ -798,7 +884,339 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 50%, rgba(197,165,90,0.06), transparent 70%);
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(0,212,255,0.06), transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(197,165,90,0.06), transparent 50%);
+}
+
+/* Tech grid background */
+.ai-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+}
+
+/* AI title: clean tech font instead of brush */
+.ai-title-text {
+  font-family: 'Lato', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #00d4ff, #C5A55A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scan ring animation */
+.ai-scan-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(0,212,255,0.2);
+  border-top-color: #00d4ff;
+  border-radius: 50%;
+  animation: aiScan 3s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ai-upload-area { position: relative; }
+.ai-upload-area:hover .ai-scan-ring { opacity: 1; }
+
+@keyframes aiScan {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Flash feature highlight */
+.ai-feature-flash {
+  border-color: rgba(0,212,255,0.3);
+  background: rgba(0,212,255,0.05);
+}
+
+.ai-feature-flash:hover {
+  border-color: #00d4ff;
+  background: rgba(0,212,255,0.1);
+  box-shadow: 0 0 30px rgba(0,212,255,0.1);
+}
+
+/* AI Examples Showcase */
+.ai-examples {
+  margin-top: 60px;
+}
+
+.ai-examples-title {
+  font-family: var(--font-song);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(197,165,90,0.2);
+}
+
+.ai-examples-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.ai-example-card {
+  padding: 0;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(197,165,90,0.12);
+  border-radius: 14px;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+.ai-example-card:hover {
+  border-color: rgba(0,212,255,0.4);
+  background: rgba(0,212,255,0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.ai-example-img {
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(135deg, rgba(20,16,10,0.8), rgba(30,25,18,0.8));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ai-example-img img {
+  width: 55%;
+  height: 80%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+  transition: transform 0.4s;
+}
+
+.ai-example-card:hover .ai-example-img img {
+  transform: scale(1.08);
+}
+
+.ai-example-confidence {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #00d4ff;
+  background: rgba(0,0,0,0.75);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,212,255,0.25);
+  font-family: 'Lato', sans-serif;
+}
+
+.ai-example-body {
+  padding: 14px 16px;
+}
+
+.ai-example-name {
+  font-family: var(--font-song);
+  font-size: 14px;
+  font-weight: 600;
+  color: #F5F0E8;
+  margin-bottom: 2px;
+}
+
+.ai-example-result {
+  font-size: 11px;
+  color: rgba(245,240,232,0.5);
+  margin-bottom: 6px;
+}
+
+.ai-example-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ai-example-grade {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: rgba(0,212,255,0.12);
+  color: #00d4ff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.ai-example-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cinnabar);
+  font-family: var(--font-song);
+}
+
+/* AI Decorative coins */
+.ai-deco-coins {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ai-deco {
+  position: absolute;
+  border-radius: 50%;
+  object-fit: contain;
+  opacity: 0.12;
+}
+
+.ai-deco-1 {
+  width: 300px; height: 300px;
+  top: -40px; right: -60px;
+  animation: yayuFloat1 12s ease-in-out infinite;
+}
+
+.ai-deco-2 {
+  width: 220px; height: 220px;
+  bottom: 40px; left: -40px;
+  animation: yayuFloat2 12s ease-in-out infinite;
+}
+
+/* AI Hero: Upload + Steps */
+.ai-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.ai-hero-left { position: relative; }
+
+/* AI Steps */
+.ai-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ai-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.ai-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(197,165,90,0.1);
+  border: 1px solid rgba(197,165,90,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.ai-step-title {
+  font-family: var(--font-song);
+  font-size: 15px;
+  font-weight: 600;
+  color: #F5F0E8;
+  margin-bottom: 4px;
+}
+
+.ai-step-desc {
+  font-size: 12px;
+  color: rgba(245,240,232,0.45);
+  line-height: 1.5;
+}
+
+.ai-step-line {
+  width: 2px;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(197,165,90,0.3), rgba(197,165,90,0.05));
+  margin-left: 19px;
+}
+
+/* AI Feature Cards */
+.ai-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.ai-fcard {
+  padding: 24px 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(197,165,90,0.12);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.ai-fcard:hover {
+  border-color: rgba(0,212,255,0.3);
+  background: rgba(0,212,255,0.04);
+  transform: translateY(-4px);
+}
+
+.ai-fcard-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  background: rgba(0,212,255,0.08);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-fcard-title {
+  font-family: var(--font-song);
+  font-size: 15px;
+  font-weight: 600;
+  color: #F5F0E8;
+  margin-bottom: 8px;
+}
+
+.ai-fcard-desc {
+  font-size: 12px;
+  color: rgba(245,240,232,0.4);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.ai-fcard-stat {
+  font-family: 'Lato', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #00d4ff;
+}
+
+.ai-fcard-stat span {
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(245,240,232,0.35);
+  margin-top: 2px;
+  font-family: var(--font-song);
 }
 
 .ai-grid {
@@ -953,6 +1371,136 @@ body::before {
   font-weight: 600;
 }
 
+/* ============ 古泉交易 ============ */
+.section-trade {
+  background: linear-gradient(180deg, var(--warm-bg) 0%, #f0ebe0 100%);
+}
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.trade-card {
+  background: #fff;
+  border: 1px solid rgba(197,165,90,0.15);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.trade-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.08);
+  border-color: var(--gold);
+}
+
+.trade-card-icon {
+  margin-bottom: 20px;
+}
+
+.trade-card-title {
+  font-family: var(--font-song);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--ink-black);
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.trade-card-desc {
+  font-size: 14px;
+  color: var(--ink-medium);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.trade-card-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  text-align: left;
+}
+
+.trade-card-features li {
+  font-size: 13px;
+  color: var(--ink-medium);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trade-card-features li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.trade-card-btn {
+  display: inline-block;
+  padding: 10px 32px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: var(--ink-black);
+  border: none;
+  border-radius: 24px;
+  font-family: var(--font-song);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.trade-card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197,165,90,0.3);
+}
+
+.trade-card-btn-flash {
+  background: linear-gradient(135deg, #00b4d8, #00d4ff);
+  color: #fff;
+}
+
+.trade-card-btn-flash:hover {
+  box-shadow: 0 6px 20px rgba(0,212,255,0.3);
+}
+
+.trade-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(197,165,90,0.15);
+}
+
+.trade-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.trade-stat-num {
+  font-family: var(--font-song);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink-black);
+}
+
+.trade-stat-label {
+  font-size: 12px;
+  color: var(--ink-medium);
+  letter-spacing: 1px;
+}
+
 /* ============ KNOWLEDGE / ARTICLE ============ */
 .knowledge-grid {
   display: grid;
@@ -982,6 +1530,14 @@ body::before {
   align-items: center;
   justify-content: center;
   font-size: 48px;
+  overflow: hidden;
+}
+
+.knowledge-card-img img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
 .knowledge-card-body {
@@ -1344,12 +1900,14 @@ body::before {
   margin-left: 4px;
 }
 
-/* ============ 古泉雅韵 SECTION ============ */
+/* ============ 古泉祥晋 SECTION ============ */
 .section-yayu {
   background: linear-gradient(135deg, #F5F0E8 0%, #EDE6D8 50%, #F5F0E8 100%);
   position: relative;
+  overflow: hidden;
 }
 
+/* ========== 古泉祥晋 — 淳化双佛展示 + 平台介绍 ========== */
 .section-yayu::before {
   content: '';
   position: absolute;
@@ -1358,15 +1916,84 @@ body::before {
   pointer-events: none;
 }
 
-.yayu-intro {
+.yayu-showcase {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
   margin-bottom: 60px;
-  align-items: start;
 }
 
-.yayu-desc h3 {
+.yayu-coin-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.yayu-coin-pair {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.yayu-coin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.yayu-coin-item img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 30px rgba(197,165,90,0.3)) drop-shadow(0 0 60px rgba(197,165,90,0.12));
+  animation: yayuGlow 6s ease-in-out infinite alternate;
+}
+
+.yayu-coin-item:nth-child(2) img {
+  animation-delay: -3s;
+}
+
+@keyframes yayuGlow {
+  0% { filter: drop-shadow(0 0 30px rgba(197,165,90,0.3)) drop-shadow(0 0 60px rgba(197,165,90,0.12)); }
+  100% { filter: drop-shadow(0 0 40px rgba(197,165,90,0.45)) drop-shadow(0 0 80px rgba(197,165,90,0.2)); }
+}
+
+.yayu-coin-label {
+  font-family: var(--font-song);
+  font-size: 13px;
+  color: var(--ink-medium);
+  letter-spacing: 2px;
+}
+
+.yayu-coin-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(197,165,90,0.2);
+}
+
+.yayu-coin-caption-title {
+  font-family: var(--font-song);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-black);
+  letter-spacing: 3px;
+}
+
+.yayu-coin-caption-sub {
+  font-size: 12px;
+  color: var(--ink-medium);
+  letter-spacing: 1px;
+}
+
+.yayu-info h3 {
   font-family: var(--font-song);
   font-size: 22px;
   font-weight: 700;
@@ -1375,7 +2002,7 @@ body::before {
   margin-bottom: 16px;
 }
 
-.yayu-desc p {
+.yayu-info p {
   font-size: 14px;
   color: var(--ink-medium);
   line-height: 1.8;
@@ -1457,89 +2084,6 @@ body::before {
   margin-left: 8px;
 }
 
-.yayu-section-title {
-  font-family: var(--font-song);
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--ink-black);
-  letter-spacing: 3px;
-  margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(197,165,90,0.2);
-}
-
-.yayu-coin-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.yayu-coin-card {
-  background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(197,165,90,0.15);
-  transition: all 0.3s;
-  cursor: pointer;
-}
-
-.yayu-coin-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-  border-color: var(--gold);
-}
-
-.yayu-coin-card-img {
-  width: 100%;
-  aspect-ratio: 1.2;
-  background: linear-gradient(135deg, #f0ebe0, #e8e0d0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.yayu-coin-card-img img {
-  width: 75%;
-  height: 75%;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
-}
-
-.yayu-coin-card-img .coin-emoji {
-  font-size: 60px;
-  opacity: 0.8;
-}
-
-.yayu-coin-card-body {
-  padding: 16px;
-}
-
-.yayu-coin-card-name {
-  font-family: var(--font-song);
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.yayu-coin-card-variety {
-  font-size: 12px;
-  color: var(--ink-medium);
-  margin-bottom: 8px;
-}
-
-.yayu-coin-card-price {
-  font-family: var(--font-song);
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--cinnabar);
-}
-
-.yayu-coin-card-price small {
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--ink-medium);
-}
 
 /* ============ ARTICLE MODAL ============ */
 .article-content h5 {
@@ -1632,11 +2176,17 @@ body::before {
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
   .ai-grid { grid-template-columns: 1fr; }
+  .ai-hero { grid-template-columns: 1fr; gap: 40px; }
+  .ai-features-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .stats-grid { grid-template-columns: repeat(3, 1fr); }
   .hero-stats { gap: 32px; }
   .famous-grid { grid-template-columns: repeat(2, 1fr); }
-  .yayu-intro { grid-template-columns: 1fr; }
+  .yayu-showcase { grid-template-columns: 1fr; gap: 40px; }
+  .auction-showcase { grid-template-columns: repeat(2, 1fr); }
+  .trade-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .trade-stats { gap: 32px; flex-wrap: wrap; }
+  .ai-examples-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -1644,6 +2194,7 @@ body::before {
   .nav-mobile-btn { display: block; }
   .hero-stats { flex-direction: column; gap: 16px; }
   .hero-border { inset: 16px; }
+  .auction-showcase { grid-template-columns: repeat(2, 1fr); }
   .coin-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
   .auction-table { font-size: 12px; }
   .modal-header { flex-direction: column; }
@@ -1656,7 +2207,13 @@ body::before {
   .famous-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
   .famous-card-name { font-size: 18px; }
   .yayu-sources { grid-template-columns: 1fr; }
-  .yayu-coin-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .yayu-coin-item img { width: 160px; height: 160px; }
+  .yayu-coin-pair { gap: 20px; }
+  .ai-examples-grid { grid-template-columns: 1fr; }
+  .ai-hero { grid-template-columns: 1fr; }
+  .ai-features-grid { grid-template-columns: 1fr 1fr; }
+  .ai-deco-1 { width: 180px; height: 180px; }
+  .ai-deco-2 { width: 140px; height: 140px; }
 }
 
 @media (max-width: 480px) {
@@ -1664,5 +2221,8 @@ body::before {
   .hero-cta { flex-direction: column; align-items: center; }
   .dynasty-header { flex-direction: column; text-align: center; }
   .famous-grid { grid-template-columns: 1fr; gap: 16px; }
-  .yayu-coin-grid { grid-template-columns: 1fr; }
+  .yayu-coin-item img { width: 130px; height: 130px; }
+  .auction-showcase { grid-template-columns: 1fr; }
+  .ai-features-grid { grid-template-columns: 1fr; }
+  .ai-deco-coins { display: none; }
 }

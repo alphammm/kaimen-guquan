@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDynastyNav();
   initCoinCards();
   initFamousCoins();
+  initAuctionShowcase();
   initAuctionTable();
   initGuquanYayu();
   initAIAppraisal();
@@ -20,17 +21,47 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatsClick();
 });
 
-// ===== Hero 浮动钱币背景 + 龙洋大图 =====
+// ===== Hero (photo background handled by CSS/HTML) =====
 function initHeroCoins() {
-  const container = document.getElementById('heroCoins');
-  if (!container || typeof IMG === 'undefined') return;
-  // 中央龙洋背景（广东省造光绪元宝）
-  container.innerHTML = `
-    <img src="${IMG.kwangtungDragon}" style="position:absolute;width:min(700px,90vw);height:auto;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.12;filter:sepia(0.3) brightness(1.2) contrast(1.1);border-radius:50%;animation:none" onerror="this.style.display='none'">
-  `;
-  // 浮动小钱币
-  const coinImgs = [IMG.chongNing, IMG.yuanShiKai, IMG.wangMangYiDao, IMG.daQingYinBi, IMG.kaiYuan, IMG.guangXu];
-  container.innerHTML += coinImgs.map(src => `<img src="${src}" loading="lazy" alt="">`).join('');
+  // Photo background now handled directly in HTML/CSS
+  // No JS initialization needed
+}
+
+// ===== Auction Top Records Showcase =====
+function initAuctionShowcase() {
+  const container = document.getElementById('auctionShowcase');
+  if (!container || typeof AUCTION_RECORDS === 'undefined') return;
+  // Curate 8 diverse, representative high-value records with distinct images
+  const showcaseCoins = [
+    '奉天癸卯一两银币样币',           // ¥46,575,000 — guangXu
+    '宣统三年·大清银币·长须龙样币·阴叶', // ¥19,800,000 — daQingYinBi
+    '上海中外通宝·壹两',              // ¥19,320,000 — shanghaiTael
+    '孙中山像·地球双旗·壹圆样币',      // ¥17,250,000 — sunYatSen
+    '袁世凯像·壹圆·七分脸签字版',      // ¥4,600,000 — yuanShiKai
+    '广东省造·寿字壹两·双龙',          // ¥2,300,000 — kwangtungDragon
+    '段祺瑞像·执政纪念币',            // ¥1,725,000 — duanQirui
+    '三孔布·上尃',                    // ¥1,380,000 — sanKongBu
+  ];
+  const sorted = showcaseCoins
+    .map(name => AUCTION_RECORDS.find(r => r.coin === name))
+    .filter(Boolean);
+
+  container.innerHTML = sorted.map((r, i) => {
+    const imgSrc = findCoinImg(r);
+    return `
+      <div class="auction-showcase-card" onclick="openAuctionDetail(${AUCTION_RECORDS.indexOf(r)})">
+        <span class="asc-rank">${i + 1}</span>
+        <div class="asc-img">
+          ${imgSrc ? `<img src="${imgSrc}" alt="${r.coin}" onerror="this.outerHTML='<span style=font-size:60px;opacity:0.3>&#x1FA99;</span>'">` : '<span style="font-size:60px;opacity:0.3">&#x1FA99;</span>'}
+        </div>
+        <div class="asc-body">
+          <div class="asc-name">${r.coin}</div>
+          <div class="asc-meta">${r.house} · ${r.date} · ${r.grade}</div>
+          <div class="asc-price">${r.price}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 // ===== 通用弹窗 =====
@@ -311,12 +342,73 @@ function initAuctionTable() {
   });
 }
 
+function findCoinImg(r) {
+  if (r.imgUrl) return r.imgUrl;
+  // Try matching from COINS or FAMOUS_COINS
+  const keyword = r.coin.split('·')[0].replace(/像|省造|年/g, '');
+  const match = COINS.find(c => r.coin.includes(c.name.split('·')[0]) || c.name.includes(keyword));
+  if (match?.img) return match.img;
+  const fmatch = FAMOUS_COINS.find(c => r.coin.includes(c.name.split('·')[0]) || c.name.includes(keyword));
+  if (fmatch?.img) return fmatch.img;
+  // Fallback by dynasty keyword
+  if (r.coin.includes('袁世凯') || r.coin.includes('袁大头')) return IMG.yuanShiKai;
+  if (r.coin.includes('张作霖')) return IMG.yuanShiKai;
+  if (r.coin.includes('孙中山') || r.coin.includes('船洋')) return IMG.sunYatSen;
+  if (r.coin.includes('光绪元宝')) return IMG.guangXu;
+  if (r.coin.includes('大清银币') || r.coin.includes('宣统')) return IMG.daQingYinBi;
+  if (r.coin.includes('段祺瑞')) return IMG.duanQirui;
+  if (r.coin.includes('曹锟')) return IMG.caoKun;
+  if (r.coin.includes('徐世昌')) return IMG.xuShichang;
+  if (r.coin.includes('洪宪')) return IMG.hongxianFeiLong;
+  if (r.coin.includes('开国纪念')) return IMG.sunMemento;
+  if (r.coin.includes('贵州') || r.coin.includes('竹子')) return IMG.kweichowAuto;
+  if (r.coin.includes('四川卢比')) return IMG.sichuanRupee;
+  if (r.coin.includes('崇宁')) return IMG.chongNing;
+  if (r.coin.includes('咸丰')) return IMG.xianfengDangQian;
+  if (r.coin.includes('靖康')) return IMG.jingKang;
+  if (r.coin.includes('大观')) return IMG.daGuan;
+  if (r.coin.includes('开元')) return IMG.kaiYuan;
+  if (r.coin.includes('王莽') || r.coin.includes('一刀')) return IMG.wangMangYiDao;
+  if (r.coin.includes('西藏') || r.coin.includes('雪岗')) return IMG.xueGang;
+  if (r.coin.includes('新疆')) return IMG.xinjiangXiangYin;
+  if (r.coin.includes('上海一两') || r.coin.includes('上海壹两')) return IMG.shanghaiTael;
+  if (r.coin.includes('广东') || r.coin.includes('双龙寿')) return IMG.kwangtungDragon;
+  if (r.coin.includes('湖北')) return IMG.hubeiSilver;
+  if (r.coin.includes('北洋')) return IMG.guangxuSilver;
+  if (r.coin.includes('造币总厂')) return IMG.guangxuDragon;
+  if (r.coin.includes('奉天')) return IMG.guangxuDragon;
+  if (r.coin.includes('福建')) return IMG.guangxuSilver;
+  if (r.coin.includes('浙江')) return IMG.guangxuSilver;
+  if (r.coin.includes('陕西')) return IMG.guangxuDragon;
+  if (r.coin.includes('湖南')) return IMG.guangxuSilver;
+  if (r.coin.includes('江南')) return IMG.guangxuSilver;
+  if (r.coin.includes('户部')) return IMG.guangxuDragon;
+  if (r.coin.includes('雍正')) return IMG.yongZheng;
+  if (r.coin.includes('康熙')) return IMG.kangxi;
+  if (r.coin.includes('顺治')) return IMG.shunzhi;
+  if (r.coin.includes('乾隆')) return IMG.qianlong;
+  if (r.coin.includes('三孔布')) return IMG.sanKongBu;
+  if (r.coin.includes('郢爰')) return IMG.yingYuan;
+  if (r.coin.includes('永乐')) return IMG.yongle;
+  if (r.coin.includes('淳化')) return IMG.chunhuaBack;
+  if (r.coin.includes('川陕') || r.coin.includes('川字')) return IMG.chuanYang;
+  if (r.coin.includes('大清铜')) return IMG.daQingCopper;
+  // Dynasty-level fallbacks
+  if (r.dynasty === '机制币') return IMG.guangXu;
+  if (r.dynasty === '民国') return IMG.yuanShiKai;
+  if (r.dynasty === '清朝' || r.dynasty === '清代') return IMG.qianlong;
+  if (r.dynasty === '两宋' || r.dynasty === '北宋' || r.dynasty === '南宋') return IMG.chongNing;
+  if (r.dynasty === '唐朝' || r.dynasty === '唐代') return IMG.kaiYuan;
+  return IMG.kaiYuan; // ultimate fallback
+}
+
 function renderAuctions(records) {
   const tbody = document.getElementById('auctionBody');
   if (!tbody) return;
   tbody.innerHTML = records.map((r, i) => {
     const globalIdx = AUCTION_RECORDS.indexOf(r);
-    const thumb = r.imgUrl ? `<img src="${r.imgUrl}" style="width:28px;height:28px;border-radius:4px;object-fit:cover;vertical-align:middle;margin-right:8px" onerror="this.style.display='none'">` : '';
+    const imgSrc = findCoinImg(r);
+    const thumb = imgSrc ? `<img src="${imgSrc}" style="width:32px;height:32px;border-radius:6px;object-fit:cover;vertical-align:middle;margin-right:8px;border:1px solid rgba(197,165,90,0.2)" onerror="this.style.display='none'">` : '';
     return `
     <tr onclick="openAuctionDetail(${globalIdx})" style="cursor:pointer">
       <td style="color:rgba(245,240,232,0.4)">${i + 1}</td>
@@ -346,8 +438,8 @@ function openAuctionDetail(index) {
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-header">
       <div class="modal-coin-img" style="background:linear-gradient(135deg, #2d2520, #1a1a1a)">
-        ${(r.imgUrl || match?.img)
-          ? `<img src="${r.imgUrl || match.img}" style="width:80%;height:80%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))" onerror="this.outerHTML='<span style=font-size:80px>🪙</span>'">`
+        ${findCoinImg(r)
+          ? `<img src="${findCoinImg(r)}" style="width:80%;height:80%;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.5))" onerror="this.outerHTML='<span style=font-size:80px>🪙</span>'">`
           : `<span style="font-size:80px">🪙</span>`}
       </div>
       <div class="modal-coin-info">
@@ -402,10 +494,9 @@ function openAuctionDetail(index) {
   `);
 }
 
-// ===== 古泉雅韵 Section =====
+// ===== 古泉祥晋 Section =====
 function initGuquanYayu() {
   renderYayuSources();
-  renderYayuCoins();
 }
 
 function renderYayuSources() {
@@ -525,11 +616,40 @@ function openYayuFeature(type) {
         return '<div style="display:flex;align-items:center;gap:8px;margin-bottom:6px"><div style="width:80px;font-size:12px;text-align:right;color:#4A4A4A;flex-shrink:0">' + name.slice(0,6) + '</div><div style="flex:1;background:rgba(0,0,0,0.04);border-radius:4px;height:22px;overflow:hidden"><div style="width:' + w + '%;height:100%;background:linear-gradient(90deg,#8B3A3A,#C5A55A);border-radius:4px"></div></div><div style="font-size:11px;color:#8B3A3A;font-weight:600;width:70px;flex-shrink:0">¥' + (d.total/10000).toFixed(0) + '万</div></div>';
       }).join('');
       const grandTotal = Object.values(houseTotals).reduce((s,d) => s + d.total, 0);
+      // Yearly transaction totals for curve chart
+      const yearlyTotals = {};
+      AUCTION_RECORDS.forEach(r => {
+        const y = r.date.slice(0, 4);
+        const p = parseInt(r.price.replace(/[¥,]/g, ''));
+        if (!yearlyTotals[y]) yearlyTotals[y] = { count: 0, total: 0 };
+        yearlyTotals[y].count++;
+        yearlyTotals[y].total += p;
+      });
+      const years = Object.keys(yearlyTotals).sort();
+      const maxYearTotal = Math.max(...years.map(y => yearlyTotals[y].total));
+      // SVG line chart
+      const chartW = 600, chartH = 180, padX = 50, padY = 20;
+      const plotW = chartW - padX * 2, plotH = chartH - padY * 2;
+      const points = years.map((y, i) => {
+        const x = padX + (i / Math.max(years.length - 1, 1)) * plotW;
+        const yPos = padY + plotH - (yearlyTotals[y].total / maxYearTotal) * plotH;
+        return { x, y: yPos, year: y, total: yearlyTotals[y].total, count: yearlyTotals[y].count };
+      });
+      const linePath = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${p.x},${p.y}`).join(' ');
+      const areaPath = linePath + ` L${points[points.length-1].x},${padY+plotH} L${points[0].x},${padY+plotH} Z`;
+      const yearChart = `<svg viewBox="0 0 ${chartW} ${chartH}" style="width:100%;height:auto;margin:12px 0">
+        <defs><linearGradient id="areGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8B3A3A" stop-opacity="0.3"/><stop offset="100%" stop-color="#8B3A3A" stop-opacity="0.02"/></linearGradient></defs>
+        <line x1="${padX}" y1="${padY+plotH}" x2="${padX+plotW}" y2="${padY+plotH}" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+        <path d="${areaPath}" fill="url(#areGrad)"/>
+        <path d="${linePath}" fill="none" stroke="#8B3A3A" stroke-width="2.5" stroke-linejoin="round"/>
+        ${points.map(p => `<circle cx="${p.x}" cy="${p.y}" r="4" fill="#8B3A3A" stroke="#fff" stroke-width="1.5"/><text x="${p.x}" y="${padY+plotH+16}" text-anchor="middle" font-size="11" fill="#6B5E4F">${p.year}</text><text x="${p.x}" y="${p.y-10}" text-anchor="middle" font-size="10" font-weight="600" fill="#8B3A3A">¥${(p.total/10000).toFixed(0)}万</text>`).join('')}
+      </svg>`;
       return `
       <button class="modal-close" onclick="closeModal()">✕</button>
       <div style="padding:32px">
         <h2 style="font-family:var(--font-brush);font-size:28px;color:#2C2418;margin-bottom:16px">市场行情</h2>
         <p style="font-size:14px;color:#4A4A4A;margin-bottom:8px">收录成交记录 <b>${AUCTION_RECORDS.length}</b> 笔 · 总成交额 <b style="color:#8B3A3A">¥${(grandTotal/100000000).toFixed(2)}亿</b></p>
+        <div class="modal-section"><h4>年度成交额走势曲线</h4>${yearChart}</div>
         <div class="modal-section"><h4>各拍卖行成交额</h4>${houseChart}</div>
         <div class="modal-section" style="margin-top:20px"><h4>Top20成交分布</h4>
         <div style="font-size:14px;line-height:2;color:#4A4A4A">
@@ -545,37 +665,15 @@ function openYayuFeature(type) {
   if (content[type]) showModal(content[type]);
 }
 
-function renderYayuCoins() {
-  const grid = document.getElementById('yayuCoinGrid');
-  if (!grid) return;
-  const jizhiCoins = COINS.filter(c => c.dynasty === 'jizhi' || c.dynasty === 'minguo');
-  grid.innerHTML = jizhiCoins.map(coin => {
-    const dynasty = DYNASTIES.find(d => d.id === coin.dynasty);
-    const imgContent = coin.img
-      ? `<img src="${coin.img}" alt="${coin.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="coin-emoji" style="display:none">${dynasty ? dynasty.icon : '⚙️'}</span>`
-      : `<span class="coin-emoji">${dynasty ? dynasty.icon : '⚙️'}</span>`;
-    return `
-      <div class="yayu-coin-card" onclick="openCoinModal(${coin.id})">
-        <div class="yayu-coin-card-img">${imgContent}</div>
-        <div class="yayu-coin-card-body">
-          <div class="yayu-coin-card-name">${coin.name}</div>
-          <div class="yayu-coin-card-variety">${coin.variety}</div>
-          <div class="yayu-coin-card-price">¥${coin.priceRange} <small>参考价</small></div>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
 // ===== Knowledge 泉识学堂 (可点击展开文章) =====
 const KNOWLEDGE_ARTICLES = [
-  { tag: '入门必读', title: '中国古钱币发展简史', icon: '🐚',
+  { tag: '入门必读', title: '中国古钱币发展简史', icon: '🐚', img: IMG.beibi,
     content: `<p>中国是世界上最早使用货币的国家之一，货币发展史长达三千余年。</p>
     <h5>一、贝币时代（商代-春秋）</h5><p>天然海贝是中国最早的货币，商代已广泛用于交易。随着贸易扩大，出现了铜贝、骨贝等仿贝。汉字中与财富相关的字多从"贝"，如财、货、贵、贫。</p>
     <h5>二、先秦多元时代（春秋-前221年）</h5><p>春秋战国时期，各国铸币各具特色：中原地区流通布币（铲形），齐国和燕国使用刀币，楚国铸蚁鼻钱（鬼脸钱），秦国铸圜钱。四大货币体系并存。</p>
     <h5>三、方孔圆钱时代（前221年-1911年）</h5><p>秦始皇统一货币为"半两"，确立圆形方孔制式，影响中国两千余年。汉武帝铸"五铢"，流通七百余年。唐高祖铸"开元通宝"，开创通宝、元宝年号钱制度。</p>
     <h5>四、机制币时代（1889-1949年）</h5><p>清末引进西方造币机器，铸造光绪元宝。民国时期袁世凯像银元（袁大头）成为流通最广的银币。方孔钱就此终结，中国货币进入现代。</p>` },
-  { tag: '鉴定技巧', title: '古钱币真伪鉴定十大要诀', icon: '🔍',
+  { tag: '鉴定技巧', title: '古钱币真伪鉴定十大要诀', icon: '🔍', img: IMG.kaiYuan,
     content: `<p>古钱币鉴定需从多维度综合判断，以下十大要诀供参考：</p>
     <h5>1. 看铜质</h5><p>真品铜质温润，假币多为现代合金，色泽偏亮或偏暗。</p>
     <h5>2. 观锈色</h5><p>真锈层次分明，入骨三分。假锈浮于表面，颜色单一。真品绿锈有"硬绿""水银古"等特征。</p>
@@ -587,7 +685,7 @@ const KNOWLEDGE_ARTICLES = [
     <h5>8. 察包浆</h5><p>老包浆自然均匀，有岁月感。做旧包浆不均匀、有化学气味。</p>
     <h5>9. 查版别</h5><p>对照图谱核实版别特征。一些稀有版别被大量仿制。</p>
     <h5>10. 综合判断</h5><p>任何单一特征都不能绝对判定真伪，需多维度交叉验证。多看真品是最好的学习方式。</p>` },
-  { tag: '版别研究', title: '崇宁通宝版别大全图解', icon: '📜',
+  { tag: '版别研究', title: '崇宁通宝版别大全图解', icon: '📜', img: IMG.chongNing,
     content: `<p>崇宁通宝是北宋徽宗崇宁年间（1102-1106）铸造的钱币，以宋徽宗赵佶亲笔题写的瘦金体书法闻名于世。</p>
     <h5>主要版别分类</h5>
     <p><b>大字版：</b>字体较大，笔画粗壮有力。又分"正字""斜字""宽字"等。</p>
@@ -597,21 +695,21 @@ const KNOWLEDGE_ARTICLES = [
     <p><b>折十大钱：</b>直径34-35mm，重约10-12g。是崇宁通宝最常见的规格。</p>
     <h5>收藏价值</h5>
     <p>普通版崇宁通宝存世量大，价格亲民（10-100元），适合入门收藏。铁母、美制等珍稀版别可达数万元。版别鉴赏是古钱收藏的重要乐趣。</p>` },
-  { tag: '市场分析', title: '2024古钱币市场行情报告', icon: '💰',
+  { tag: '市场分析', title: '2024古钱币市场行情报告', icon: '💰', img: IMG.yuanShiKai,
     content: `<h5>总体趋势</h5><p>2024年古钱币市场呈现结构性分化。珍稀品种持续走高，普通品种表现平淡。</p>
     <h5>先秦钱币</h5><p>先秦刀布币价格持续攀升，三孔布以420万成交创下新高。齐大刀、郢爰等名品表现强劲。</p>
     <h5>宋钱</h5><p>崇宁通宝铁母以350万成交，大观通宝折十铁母185万。宋代御书钱成为热门收藏方向。靖康通宝依然是两宋钱币中的"天花板"。</p>
     <h5>清钱</h5><p>咸丰大钱市场活跃，宝泉当千520万元成交。雍正通宝各局持续走高，成套收藏需求旺盛。</p>
     <h5>机制币</h5><p>奉天癸卯一两以4657万元蝉联中国钱币拍卖纪录榜首(2022年诚轩)。张作霖系列持续霸榜Top10。袁大头签字版等顶级珍品价格坚挺。普通版袁大头、船洋等大众品种价格回调。</p>
     <h5>投资建议</h5><p>重品质、重版别、重传承。名家旧藏、评级高分币溢价明显。避免追高普通品种。</p>` },
-  { tag: '专题研究', title: '王莽货币改制与钱币艺术', icon: '🏛️',
+  { tag: '专题研究', title: '王莽货币改制与钱币艺术', icon: '🏛️', img: IMG.wangMangYiDao,
     content: `<p>王莽（公元9-23年）在位仅14年，却进行了四次大规模货币改革，创造了中国钱币史上最具艺术性的一批钱币。</p>
     <h5>第一次改制：居摄二年（7年）</h5><p>铸造"大泉五十"和"契刀五百""一刀平五千"。一刀平五千以环柄嵌金"一刀"二字，工艺精湛，为历代钱币收藏家梦寐以求的珍品。</p>
     <h5>第二次改制：始建国元年（9年）</h5><p>废除刀币，推行"宝货制"，包含五种货币28个品种，过于复杂导致民间混乱。</p>
     <h5>第三次改制：天凤元年（14年）</h5><p>简化为"货泉"和"货布"两种。货泉篆书优美，尤其"悬针篆"货泉文字飘逸如悬针，是中国古钱币书法艺术的代表。</p>
     <h5>第四次改制：</h5><p>铸布泉，重新采用布币形制与圆钱并行。</p>
     <h5>艺术价值</h5><p>王莽钱币在铸造工艺、文字书法、造型设计上都达到了极高水准，被誉为"中国古钱之冠"。</p>` },
-  { tag: '收藏指南', title: '机制币入门：从袁大头开始', icon: '⚙️',
+  { tag: '收藏指南', title: '机制币入门：从袁大头开始', icon: '⚙️', img: IMG.sunMemento,
     content: `<p>袁世凯像银元（俗称"袁大头"）是中国机制银币收藏的最佳入门品种。</p>
     <h5>年份版别</h5>
     <p><b>民国三年（1914）：</b>铸量最大，版别最多。普通版存世量充足，适合入门。签字版L.GIORGI极为珍罕，价值数百万。</p>
@@ -623,9 +721,18 @@ const KNOWLEDGE_ARTICLES = [
 ];
 
 function initKnowledge() {
-  document.querySelectorAll('.knowledge-card').forEach((card, i) => {
-    card.addEventListener('click', () => openKnowledgeArticle(i));
-  });
+  const grid = document.getElementById('knowledgeGrid');
+  if (!grid) return;
+  grid.innerHTML = KNOWLEDGE_ARTICLES.map((a, i) => `
+    <div class="knowledge-card" onclick="openKnowledgeArticle(${i})">
+      <div class="knowledge-card-img">${a.img ? `<img src="${a.img}" alt="${a.title}">` : a.icon}</div>
+      <div class="knowledge-card-body">
+        <span class="knowledge-card-tag">${a.tag}</span>
+        <h3 class="knowledge-card-title">${a.title}</h3>
+        <p class="knowledge-card-excerpt">${a.content.replace(/<[^>]*>/g, '').substring(0, 80)}...</p>
+      </div>
+    </div>
+  `).join('');
 }
 
 function openKnowledgeArticle(index) {
@@ -697,8 +804,40 @@ function openTimelineDetail(index) {
   `);
 }
 
+// ===== AI Examples =====
+const AI_EXAMPLES = [
+  { img: IMG.chongNing, name: '崇宁通宝', result: '北宋 · 瘦金体 · 折十', grade: '美品 85分', price: '¥800-3,000', confidence: 98 },
+  { img: IMG.kaiYuan, name: '开元通宝', result: '唐代 · 初铸大字', grade: '上美 80分', price: '¥200-1,500', confidence: 96 },
+  { img: IMG.yuanShiKai, name: '袁大头三年', result: '民国三年 · 普通版', grade: 'XF45', price: '¥2,000-5,000', confidence: 99 },
+  { img: IMG.wangMangYiDao, name: '一刀平五千', result: '新朝 · 金错刀', grade: '美品', price: '¥30,000-80,000', confidence: 94 },
+  { img: IMG.chunhuaBack, name: '淳化元宝', result: '北宋 · 背双佛金钱', grade: '极美', price: '¥300,000+', confidence: 92 },
+  { img: IMG.qinBanLiang, name: '秦半两', result: '秦代 · 统一半两', grade: '上品', price: '¥500-3,000', confidence: 97 },
+];
+
+function initAIExamples() {
+  const grid = document.getElementById('aiExamples');
+  if (!grid) return;
+  grid.innerHTML = AI_EXAMPLES.map(e => `
+    <div class="ai-example-card">
+      <div class="ai-example-img">
+        <img src="${e.img}" alt="${e.name}" onerror="this.outerHTML='<span style=font-size:50px;opacity:0.3>🪙</span>'">
+        <span class="ai-example-confidence">AI ${e.confidence}%</span>
+      </div>
+      <div class="ai-example-body">
+        <div class="ai-example-name">${e.name}</div>
+        <div class="ai-example-result">${e.result}</div>
+        <div class="ai-example-meta">
+          <span class="ai-example-grade">${e.grade}</span>
+          <span class="ai-example-price">${e.price}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
 // ===== AI Appraisal =====
 function initAIAppraisal() {
+  initAIExamples();
   const uploadArea = document.getElementById('aiUpload');
   const fileInput = document.getElementById('aiFileInput');
   if (!uploadArea || !fileInput) return;
@@ -715,7 +854,7 @@ function handleAppraisal() {
   const uploadArea = document.getElementById('aiUpload');
   if (!resultPanel) return;
 
-  uploadArea.innerHTML = `<span class="ai-upload-icon">⏳</span><div class="ai-upload-text">AI 鉴定分析中...</div><div class="ai-upload-hint">正在识别钱币特征、比对数据库</div>`;
+  uploadArea.innerHTML = `<div class="ai-scan-ring" style="opacity:1"></div><span class="ai-upload-icon"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="2"><circle cx="12" cy="12" r="10" stroke-dasharray="4 3"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="1.5s" repeatCount="indefinite"/></circle></svg></span><div class="ai-upload-text" style="color:#00d4ff">AI 深度分析中...</div><div class="ai-upload-hint">扫描钱币特征 · 比对120万+数据库记录</div>`;
 
   setTimeout(() => {
     const samples = [
@@ -725,7 +864,7 @@ function handleAppraisal() {
     ];
     const s = samples[Math.floor(Math.random() * samples.length)];
 
-    uploadArea.innerHTML = `<span class="ai-upload-icon">📸</span><div class="ai-upload-text">点击或拖拽上传钱币照片</div><div class="ai-upload-hint">支持正反面照片，AI将自动识别朝代、版别与真伪</div>`;
+    uploadArea.innerHTML = `<div class="ai-scan-ring"></div><span class="ai-upload-icon"><svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="4" width="56" height="56" rx="12" stroke="rgba(197,165,90,0.4)" stroke-width="2" stroke-dasharray="6 4"/><circle cx="32" cy="28" r="10" stroke="#C5A55A" stroke-width="2"/><path d="M20 48c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#C5A55A" stroke-width="2" stroke-linecap="round"/><path d="M46 18l4-4m0 0h-6m6 0v6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="ai-upload-text">点击或拖拽上传钱币照片</div><div class="ai-upload-hint">AI深度学习 · 覆盖先秦至民国 · 秒级响应</div>`;
 
     resultPanel.classList.add('show');
     resultPanel.innerHTML = `
@@ -742,6 +881,10 @@ function handleAppraisal() {
         <div class="ai-result-item"><div class="ai-result-label">品相评级</div><div class="ai-result-value">${s.grade}</div></div>
         <div class="ai-result-item" style="grid-column:span 2"><div class="ai-result-label">估价区间</div><div class="ai-result-value" style="color:#8B3A3A;font-size:20px">${s.estimate}</div></div>
         <div class="ai-result-item" style="grid-column:span 2"><div class="ai-result-label">鉴定特征</div><div class="ai-result-value" style="font-size:14px;font-weight:400;line-height:1.7">${s.features}</div></div>
+      </div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(0,212,255,0.15);display:flex;gap:12px">
+        <button onclick="alert('闪电回收意向已提交！我们将在24小时内联系您报价。')" style="flex:1;padding:14px;background:linear-gradient(135deg,#00d4ff,#0099cc);color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:2px;font-family:var(--font-sans);transition:all 0.3s" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,212,255,0.3)'" onmouseout="this.style.transform='';this.style.boxShadow=''">&#9889; 闪电回收</button>
+        <button onclick="handleAppraisal()" style="flex:1;padding:14px;background:rgba(197,165,90,0.15);color:#C5A55A;border:1px solid rgba(197,165,90,0.3);border-radius:10px;font-size:14px;cursor:pointer;letter-spacing:2px;font-family:var(--font-sans);transition:all 0.3s" onmouseover="this.style.borderColor='#C5A55A'" onmouseout="this.style.borderColor='rgba(197,165,90,0.3)'">重新鉴定</button>
       </div>
     `;
   }, 2000);

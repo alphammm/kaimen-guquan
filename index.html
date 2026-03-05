@@ -14,16 +14,17 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-icon">泉</div>
+      <img class="nav-logo-icon" src="img/chunhua-shuangfo-back.jpg" alt="淳化双佛">
       <span class="nav-logo-text">祥晋古泉</span>
     </a>
     <ul class="nav-links">
       <li><a href="#famous" class="active">名誉品</a></li>
       <li><a href="#catalog">钱币图鉴</a></li>
       <li><a href="#auction">拍卖纪录</a></li>
-      <li><a href="#guquan-yayu">古泉雅韵</a></li>
+      <li><a href="#guquan-yayu">古泉祥晋</a></li>
       <li><a href="#ai">AI鉴宝</a></li>
-      <li><a href="#knowledge">泉识学堂</a></li>
+      <li><a href="#trade">古泉交易</a></li>
+      <li><a href="#knowledge">祥晋学堂</a></li>
     </ul>
     <div class="nav-search">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -35,14 +36,20 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-ink"></div>
-  <div class="hero-coins-bg" id="heroCoins"></div>
+  <!-- 寿字双龙全屏背景 -->
+  <div class="hero-photo-bg">
+    <img src="img/shuanglong-shou-detail.jpg" class="hero-photo hero-photo-1" alt="">
+    <img src="img/shuanglong-obverse-reverse.png" class="hero-photo hero-photo-2" alt="">
+    <img src="img/shuanglong-guangxu-detail.jpg" class="hero-photo hero-photo-3" alt="">
+  </div>
+  <div class="hero-photo-overlay"></div>
   <div class="hero-border"></div>
   <div class="hero-content">
+    <p class="hero-label">XIANGJIN GUQUAN · MUSEUM-GRADE NUMISMATIC DATABASE</p>
     <h1 class="hero-title">祥晋古泉</h1>
     <p class="hero-subtitle">中国古钱币收藏鉴赏 · 博物馆级数据库</p>
-    <p class="hero-subtitle" style="font-size:13px;opacity:0.5;margin-top:4px;letter-spacing:3px;font-family:'Lato',sans-serif">XIANGJIN GUQUAN · MUSEUM-GRADE NUMISMATIC DATABASE</p>
+    <div class="hero-divider"></div>
+    <p class="hero-featured-text">广东省造 · 双龙寿字 · 壹两 — 鸿禧美术馆旧藏 · 全球存世仅数枚</p>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-num" data-target="100" data-format="true">0</span>
@@ -159,6 +166,9 @@
       <p class="section-subtitle">实时追踪 · 全球拍场数据</p>
     </div>
 
+    <!-- Top成交记录展示 -->
+    <div class="auction-showcase fade-up" id="auctionShowcase"></div>
+
     <div class="auction-filters fade-up">
       <button class="auction-filter-btn active" data-filter="all">全部</button>
       <button class="auction-filter-btn" data-filter="先秦">先秦</button>
@@ -200,19 +210,37 @@
   </div>
 </section>
 
-<!-- ========== 古泉雅韵 SUB-SECTION ========== -->
+<!-- ========== 古泉祥晋 SUB-SECTION ========== -->
 <section class="section section-yayu" id="guquan-yayu">
   <div class="container">
     <div class="section-header fade-up">
       <div class="section-header-line" style="background:linear-gradient(90deg, var(--gold), var(--cinnabar))"></div>
-      <h2 class="section-title" style="letter-spacing:12px">古泉雅韵</h2>
+      <h2 class="section-title" style="letter-spacing:12px">古泉祥晋</h2>
       <p class="section-subtitle">机制币拍卖数据追踪 · 首席收藏 + 全球拍卖行直连 · 收录成交总额 ¥5.48亿</p>
     </div>
 
-    <div class="yayu-intro fade-up">
-      <div class="yayu-desc">
+    <!-- 淳化双佛展示 + 平台介绍 -->
+    <div class="yayu-showcase fade-up">
+      <div class="yayu-coin-display">
+        <div class="yayu-coin-pair">
+          <div class="yayu-coin-item">
+            <img src="img/chunhua-shuangfo-front.jpg" alt="淳化元宝 正面">
+            <span class="yayu-coin-label">淳化元宝 · 正面</span>
+          </div>
+          <div class="yayu-coin-item">
+            <img src="img/chunhua-shuangfo-back.jpg" alt="淳化元宝 背双佛">
+            <span class="yayu-coin-label">背双佛 · 五台山出土</span>
+          </div>
+        </div>
+        <div class="yayu-coin-caption">
+          <span class="yayu-coin-caption-title">淳化元宝 · 背双佛金钱</span>
+          <span class="yayu-coin-caption-sub">北宋淳化五年(994) · 山西五台山出土 · 佛教金币之冠</span>
+        </div>
+      </div>
+
+      <div class="yayu-info">
         <h3>机制币专业数据平台</h3>
-        <p>古泉雅韵是祥晋古泉旗下的机制币拍卖数据追踪系统，聚合首席收藏120万+拍卖记录，并直连Heritage、SBP、嘉德、诚轩、保利、西泠、华夏古泉等主要拍卖行，提供实时成交数据、价格走势分析和市场行情。</p>
+        <p>古泉祥晋是祥晋古泉旗下的机制币拍卖数据追踪系统，聚合首席收藏120万+拍卖记录，并直连Heritage、SBP、嘉德、诚轩、保利、西泠、华夏古泉等主要拍卖行，提供实时成交数据、价格走势分析和市场行情。</p>
         <div class="yayu-features">
           <span class="yayu-feature-tag" onclick="document.getElementById('auction').scrollIntoView({behavior:'smooth'})">实时成交数据</span>
           <span class="yayu-feature-tag" onclick="openYayuFeature('price-trend')">价格走势分析</span>
@@ -220,17 +248,9 @@
           <span class="yayu-feature-tag" onclick="openYayuFeature('grade')">评级对照</span>
           <span class="yayu-feature-tag" onclick="openYayuFeature('market')">市场行情</span>
         </div>
-      </div>
-      <div class="yayu-sources" id="yayuSources">
-        <!-- Rendered by JS -->
-      </div>
-    </div>
-
-    <!-- 机制币精选 -->
-    <div class="yayu-coins fade-up">
-      <h3 class="yayu-section-title">机制币精选</h3>
-      <div class="yayu-coin-grid" id="yayuCoinGrid">
-        <!-- Rendered by JS -->
+        <div class="yayu-sources" id="yayuSources">
+          <!-- Rendered by JS -->
+        </div>
       </div>
     </div>
   </div>
@@ -238,53 +258,178 @@
 
 <!-- ========== AI APPRAISAL ========== -->
 <section class="ai-section" id="ai">
-  <div class="container">
+  <div class="ai-grid-bg"></div>
+  <!-- 装饰钱币 -->
+  <div class="ai-deco-coins">
+    <img src="img/chunhua-shuangfo-front.jpg" class="ai-deco ai-deco-1" alt="">
+    <img src="img/chunhua-shuangfo-back.jpg" class="ai-deco ai-deco-2" alt="">
+  </div>
+  <div class="container" style="position:relative;z-index:2">
     <div class="section-header fade-up">
-      <div class="section-header-line"></div>
-      <h2 class="section-title" style="color:var(--gold)">AI 鉴宝</h2>
-      <p class="section-subtitle" style="color:rgba(245,240,232,0.5)">上传照片 · 智能识别朝代版别 · 估价参考</p>
+      <div class="section-header-line" style="background:linear-gradient(90deg,#00d4ff,#C5A55A)"></div>
+      <h2 class="section-title" style="color:var(--gold)"><span class="ai-title-text">AI</span> 鉴宝</h2>
+      <p class="section-subtitle" style="color:rgba(245,240,232,0.5)">上传照片 · 智能识别朝代版别 · 估价参考 · 闪电回收</p>
     </div>
 
-    <div class="ai-grid fade-up">
-      <div>
+    <!-- 核心功能区：上传 + 流程 -->
+    <div class="ai-hero fade-up">
+      <div class="ai-hero-left">
         <div class="ai-upload-area" id="aiUpload">
-          <span class="ai-upload-icon">📸</span>
+          <div class="ai-scan-ring"></div>
+          <span class="ai-upload-icon">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="4" y="4" width="56" height="56" rx="12" stroke="rgba(197,165,90,0.4)" stroke-width="2" stroke-dasharray="6 4"/><circle cx="32" cy="28" r="10" stroke="#C5A55A" stroke-width="2"/><path d="M20 48c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#C5A55A" stroke-width="2" stroke-linecap="round"/><path d="M46 18l4-4m0 0h-6m6 0v6" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
           <div class="ai-upload-text">点击或拖拽上传钱币照片</div>
-          <div class="ai-upload-hint">支持正反面照片，AI将自动识别朝代、版别与真伪</div>
+          <div class="ai-upload-hint">AI深度学习 · 覆盖先秦至民国 · 秒级响应</div>
         </div>
         <input type="file" id="aiFileInput" accept="image/*" style="display:none">
         <div class="ai-result" id="aiResult"></div>
       </div>
+      <div class="ai-hero-right">
+        <!-- AI流程步骤 -->
+        <div class="ai-steps">
+          <div class="ai-step">
+            <div class="ai-step-num">01</div>
+            <div class="ai-step-content">
+              <div class="ai-step-title">上传照片</div>
+              <div class="ai-step-desc">拍摄钱币正反面，支持 JPG/PNG</div>
+            </div>
+          </div>
+          <div class="ai-step-line"></div>
+          <div class="ai-step">
+            <div class="ai-step-num">02</div>
+            <div class="ai-step-content">
+              <div class="ai-step-title">AI分析识别</div>
+              <div class="ai-step-desc">深度学习模型比对数据库 100,000+ 标准器物</div>
+            </div>
+          </div>
+          <div class="ai-step-line"></div>
+          <div class="ai-step">
+            <div class="ai-step-num">03</div>
+            <div class="ai-step-content">
+              <div class="ai-step-title">鉴定报告</div>
+              <div class="ai-step-desc">朝代、版别、真伪、品相评级、市场估价</div>
+            </div>
+          </div>
+          <div class="ai-step-line"></div>
+          <div class="ai-step ai-step-flash">
+            <div class="ai-step-num" style="background:rgba(0,212,255,0.15);color:#00d4ff;border-color:#00d4ff">⚡</div>
+            <div class="ai-step-content">
+              <div class="ai-step-title" style="color:#00d4ff">闪电回收</div>
+              <div class="ai-step-desc">一键提交回收意向，24h 内获得专业报价</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-      <div class="ai-features">
-        <div class="ai-feature">
-          <div class="ai-feature-icon">🔍</div>
-          <div>
-            <div class="ai-feature-title">智能识别</div>
-            <div class="ai-feature-desc">基于深度学习的钱币图像识别，覆盖先秦至民国全朝代。</div>
-          </div>
+    <!-- 功能特性网格 -->
+    <div class="ai-features-grid fade-up">
+      <div class="ai-fcard">
+        <div class="ai-fcard-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div class="ai-fcard-title">智能识别</div>
+        <div class="ai-fcard-desc">覆盖先秦至民国全朝代<br>准确率 96%+</div>
+        <div class="ai-fcard-stat">100,000+<span>标准器物</span></div>
+      </div>
+      <div class="ai-fcard">
+        <div class="ai-fcard-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="ai-fcard-title">真伪鉴定</div>
+        <div class="ai-fcard-desc">铸造工艺·文字风格<br>锈色包浆·标准对比</div>
+        <div class="ai-fcard-stat">12<span>维度分析</span></div>
+      </div>
+      <div class="ai-fcard">
+        <div class="ai-fcard-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="ai-fcard-title">智能估价</div>
+        <div class="ai-fcard-desc">结合近年拍卖数据<br>品相评级·市场行情</div>
+        <div class="ai-fcard-stat">171<span>条拍卖记录</span></div>
+      </div>
+      <div class="ai-fcard">
+        <div class="ai-fcard-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+        <div class="ai-fcard-title">版别解读</div>
+        <div class="ai-fcard-desc">辨识点标注·铸造背景<br>历史故事·收藏建议</div>
+        <div class="ai-fcard-stat">15<span>朝代覆盖</span></div>
+      </div>
+    </div>
+
+    <!-- AI鉴宝示例展示 -->
+    <div class="ai-examples fade-up">
+      <h3 class="ai-examples-title">鉴定案例</h3>
+      <div class="ai-examples-grid" id="aiExamples">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 古泉交易 ========== -->
+<section class="section section-trade" id="trade">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-header-line" style="background:linear-gradient(90deg, var(--gold), var(--bronze-green))"></div>
+      <h2 class="section-title">古泉交易</h2>
+      <p class="section-subtitle">安全交易 · 专业鉴定 · 公正估价</p>
+    </div>
+
+    <div class="trade-grid fade-up">
+      <div class="trade-card trade-card-buy">
+        <div class="trade-card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         </div>
-        <div class="ai-feature">
-          <div class="ai-feature-icon">⚖️</div>
-          <div>
-            <div class="ai-feature-title">真伪鉴定</div>
-            <div class="ai-feature-desc">分析铸造工艺、文字风格、锈色包浆，对比数据库标准器物。</div>
-          </div>
+        <h3 class="trade-card-title">我要买</h3>
+        <p class="trade-card-desc">浏览精品古钱币，经专业鉴定后交易。支持担保交易，先验货再付款。</p>
+        <ul class="trade-card-features">
+          <li>100% 实物实拍</li>
+          <li>专业评级鉴定</li>
+          <li>7天无理由退货</li>
+        </ul>
+        <button class="trade-card-btn" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">浏览钱币</button>
+      </div>
+
+      <div class="trade-card trade-card-sell">
+        <div class="trade-card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M8 10l4-4 4 4"/></svg>
         </div>
-        <div class="ai-feature">
-          <div class="ai-feature-icon">💰</div>
-          <div>
-            <div class="ai-feature-title">智能估价</div>
-            <div class="ai-feature-desc">结合近年拍卖数据、品相评级和市场行情给出价格区间。</div>
-          </div>
+        <h3 class="trade-card-title">我要卖</h3>
+        <p class="trade-card-desc">上传藏品照片，AI 智能估价。平台提供免费鉴定，快速撮合成交。</p>
+        <ul class="trade-card-features">
+          <li>AI 智能估价</li>
+          <li>免费专业鉴定</li>
+          <li>快速安全结算</li>
+        </ul>
+        <button class="trade-card-btn" onclick="document.getElementById('ai').scrollIntoView({behavior:'smooth'})">上传藏品</button>
+      </div>
+
+      <div class="trade-card trade-card-recycle">
+        <div class="trade-card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m0 0a9 9 0 019-9m-9 9a9 9 0 009 9"/></svg>
         </div>
-        <div class="ai-feature">
-          <div class="ai-feature-icon">📚</div>
-          <div>
-            <div class="ai-feature-title">版别解读</div>
-            <div class="ai-feature-desc">详细解读版别特征，标注辨识点，提供铸造背景和历史故事。</div>
-          </div>
-        </div>
+        <h3 class="trade-card-title">闪电回收</h3>
+        <p class="trade-card-desc">拍照即估价，24小时内出报价。高价回收各类古钱币、机制币、评级币。</p>
+        <ul class="trade-card-features">
+          <li>24h 极速报价</li>
+          <li>高于市场均价</li>
+          <li>上门取件服务</li>
+        </ul>
+        <button class="trade-card-btn trade-card-btn-flash">立即估价</button>
+      </div>
+    </div>
+
+    <div class="trade-stats fade-up">
+      <div class="trade-stat">
+        <span class="trade-stat-num">¥5.48亿</span>
+        <span class="trade-stat-label">累计成交额</span>
+      </div>
+      <div class="trade-stat">
+        <span class="trade-stat-num">12,000+</span>
+        <span class="trade-stat-label">成交笔数</span>
+      </div>
+      <div class="trade-stat">
+        <span class="trade-stat-num">99.6%</span>
+        <span class="trade-stat-label">好评率</span>
+      </div>
+      <div class="trade-stat">
+        <span class="trade-stat-num">48h</span>
+        <span class="trade-stat-label">平均成交时间</span>
       </div>
     </div>
   </div>
@@ -295,59 +440,12 @@
   <div class="container">
     <div class="section-header fade-up">
       <div class="section-header-line"></div>
-      <h2 class="section-title">泉识学堂</h2>
+      <h2 class="section-title">祥晋学堂</h2>
       <p class="section-subtitle">以泉为鉴 · 知古通今</p>
     </div>
 
-    <div class="knowledge-grid fade-up">
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">🐚</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">入门必读</span>
-          <h3 class="knowledge-card-title">中国古钱币发展简史</h3>
-          <p class="knowledge-card-excerpt">从商代天然贝币到清末方孔钱，再到近代机制币。三千年中国货币演变，一文读懂古泉脉络。</p>
-        </div>
-      </div>
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">🔍</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">鉴定技巧</span>
-          <h3 class="knowledge-card-title">古钱币真伪鉴定十大要诀</h3>
-          <p class="knowledge-card-excerpt">看铜质、观锈色、审文字、验工艺。十个维度教你辨别古钱真伪。</p>
-        </div>
-      </div>
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">📜</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">版别研究</span>
-          <h3 class="knowledge-card-title">崇宁通宝版别大全图解</h3>
-          <p class="knowledge-card-excerpt">宋徽宗瘦金体御书崇宁通宝，版别多达200余种。大字、小字、铁母、美制各有特征。</p>
-        </div>
-      </div>
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">💰</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">市场分析</span>
-          <h3 class="knowledge-card-title">2024古钱币市场行情报告</h3>
-          <p class="knowledge-card-excerpt">先秦刀布持续走高，宋钱名品受追捧，机制币市场分化加剧。</p>
-        </div>
-      </div>
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">🏛️</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">专题研究</span>
-          <h3 class="knowledge-card-title">王莽货币改制与钱币艺术</h3>
-          <p class="knowledge-card-excerpt">王莽四次币制改革，创造了中国钱币史上最具艺术性的一批钱币。</p>
-        </div>
-      </div>
-      <div class="knowledge-card">
-        <div class="knowledge-card-img">⚙️</div>
-        <div class="knowledge-card-body">
-          <span class="knowledge-card-tag">收藏指南</span>
-          <h3 class="knowledge-card-title">机制币入门：从袁大头开始</h3>
-          <p class="knowledge-card-excerpt">袁大头是中国机制银币收藏的入门首选。详解版别辨识和评级标准。</p>
-        </div>
-      </div>
+    <div class="knowledge-grid fade-up" id="knowledgeGrid">
+      <!-- Rendered by JS with real coin images -->
     </div>
   </div>
 </section>
@@ -424,12 +522,12 @@
       <div class="footer-col">
         <h4>工具服务</h4>
         <a href="#ai">AI 鉴宝</a>
+        <a href="#trade">古泉交易</a>
         <a href="#auction">拍卖纪录</a>
-        <a href="#guquan-yayu">古泉雅韵</a>
-        <a href="#">评级对照</a>
+        <a href="#guquan-yayu">古泉祥晋</a>
       </div>
       <div class="footer-col">
-        <h4>泉识学堂</h4>
+        <h4>祥晋学堂</h4>
         <a href="#knowledge">入门指南</a>
         <a href="#knowledge">鉴定技巧</a>
         <a href="#knowledge">版别研究</a>

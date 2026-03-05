@@ -1,5 +1,5 @@
 // ============================================
-// 祥晋古泉 — 全量古钱币数据库 + 古泉雅韵机制币
+// 祥晋古泉 — 全量古钱币数据库 + 古泉祥晋机制币
 // ============================================
 
 // Wikimedia Commons 实拍图
@@ -55,6 +55,34 @@ const IMG = {
   shuangLongShouDetail: 'img/shuanglong-detail.jpg',
   // 贵州汽车币 obverse (Wikimedia)
   kweichowAutoObv: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kweichow_Auto_Dollar_Obverse.jpg/500px-Kweichow_Auto_Dollar_Obverse.jpg',
+  // 淳化元宝背双佛金币 — 用户提供实拍
+  chunhuaFront: 'img/chunhua-shuangfo-front.jpg',
+  chunhuaBack: 'img/chunhua-shuangfo-back.jpg',
+  // 民国人物币 — Wikimedia verified
+  xuShichang: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/%E5%BE%90%E4%B8%96%E6%98%8C.jpg/440px-%E5%BE%90%E4%B8%96%E6%98%8C.jpg',
+  caoKun: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Cao_Kun.jpg/440px-Cao_Kun.jpg',
+  // 古钱币去重 — 每币独立Wikimedia图
+  tongBei: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Bronze_cowries.jpg/500px-Bronze_cowries.jpg',
+  jianZuBu: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Warring_States_Bronze_Spade_Coin_03.jpg/500px-Warring_States_Bronze_Spade_Coin_03.jpg',
+  fangZuBu: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Square_foot_spade_money_%28Zhou_Dynasty%29_-_Scott_Semans.jpg/500px-Square_foot_spade_money_%28Zhou_Dynasty%29_-_Scott_Semans.jpg',
+  zhaoDaobi: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Knife_Money_of_Zhao_and_Qi_%2810195357143%29.jpg/500px-Knife_Money_of_Zhao_and_Qi_%2810195357143%29.jpg',
+  yiBiQian: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chu_State_Ant-Nose_Coins%2C_Warring_States.jpg/500px-Chu_State_Ant-Nose_Coins%2C_Warring_States.jpg',
+  yuanQian: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Yuan_%28%E5%9E%A3%29_-_Scott_Semans.jpg/500px-Yuan_%28%E5%9E%A3%29_-_Scott_Semans.jpg',
+  wuZhuHan: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Wu_Zhu_%28%E4%BA%94%E9%8A%96%29_-_Emperor_Wu_of_Han_%28140-87_BC%29_-_Coinsandrings_04.jpg/500px-Wu_Zhu_%28%E4%BA%94%E9%8A%96%29_-_Emperor_Wu_of_Han_%28140-87_BC%29_-_Coinsandrings_04.jpg',
+  suiWuZhu: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/095_S-253_Sui_Wuzhu%2C_Sui_Wendi%2C_589-604_AD%2C_23mm.jpg/500px-095_S-253_Sui_Wuzhu%2C_Sui_Wendi%2C_589-604_AD%2C_23mm.jpg',
+  qianYuan: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/S407_Qianyuan_SuZong_%287243234232%29.jpg/500px-S407_Qianyuan_SuZong_%287243234232%29.jpg',
+  tianFu: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Tianfu_Yuanbao._Coin_of_the_Tianfu_era.jpg/500px-Tianfu_Yuanbao._Coin_of_the_Tianfu_era.jpg',
+  qianHeng: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Qian_Heng_Zhong_Bao_%28%E4%B9%BE%E4%BA%A8%E9%87%8D%E5%AF%B6%29_-_Southern_Han_Kingdom_-_Scott_Semans_08.jpg',
+  zhouYuan: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Zhou_Yuan_Tong_Bao_-_Scott_Semans_01.jpg/500px-Zhou_Yuan_Tong_Bao_-_Scott_Semans_01.jpg',
+  taiPing: 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Taiping_Tongbao_%28%E5%A4%AA%E5%B9%B3%E9%80%9A%E5%AF%B6%29_-_Northern_Song_Dynasty_-_Liuliang_Yu_and_Hong_Yu_01.png',
+  guangxuSilver: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/20241025_%22Guangxu_Yuanbao%22_Silver_Coins%2C_Qing_Dynasty.jpg/500px-20241025_%22Guangxu_Yuanbao%22_Silver_Coins%2C_Qing_Dynasty.jpg',
+  daQingTongbi: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/1_w%C3%A9n_%28%E4%B8%80%E6%96%87%29_-_Da-Qing_Tongbi_%28%E5%A4%A7%E6%B8%85%E9%8A%85%E5%B9%A3%29_-_1909_Bielik-coins_01.jpg/500px-1_w%C3%A9n_%28%E4%B8%80%E6%96%87%29_-_Da-Qing_Tongbi_%28%E5%A4%A7%E6%B8%85%E9%8A%85%E5%B9%A3%29_-_1909_Bielik-coins_01.jpg',
+  xuanTong: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Xuantong_Yuanbao_HZ.jpg/500px-Xuantong_Yuanbao_HZ.jpg',
+  kaiYuanSouthernTang: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Kai_Yuan_Tong_Bao_%28Southern_Tang_Dynasty%29_-_Scott_Semans.jpg/500px-Kai_Yuan_Tong_Bao_%28Southern_Tang_Dynasty%29_-_Scott_Semans.jpg',
+  guangxuCopper: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/10_Cash_-_Guangxu_Yuanbao_%28Sichuan_Mint%29_-_Scott_Semans_04.jpg/500px-10_Cash_-_Guangxu_Yuanbao_%28Sichuan_Mint%29_-_Scott_Semans_04.jpg',
+  // 千秋万岁、西王赏功 — Wikimedia
+  qianQiuWanSui: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Qianqiu_Wansui_%28%E5%8D%83%E7%A7%8B%E4%B8%87%E6%AD%B2%29_-_China_ancient_Eastern_Wu_Dynasty_222-280_Da_Quan_Wu_Qian_Copper_Amuletes_S272_-_Numisvlora_01.jpg/500px-Qianqiu_Wansui_%28%E5%8D%83%E7%A7%8B%E4%B8%87%E6%AD%B2%29_-_China_ancient_Eastern_Wu_Dynasty_222-280_Da_Quan_Wu_Qian_Copper_Amuletes_S272_-_Numisvlora_01.jpg',
+  xiWangShangGong: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Rubbings_of_Chinese_numismatic_marriage_charms_-_Sinaimg.cn_-_01.jpg',
 };
 
 // 名誉品 — 首页展示的传世名品
@@ -79,11 +107,15 @@ const FAMOUS_COINS = [
   { name: '崇宁通宝·铁母', sub: '北宋 · 瘦金体御书', img: IMG.chongNing, price: '¥50,000-3,500,000', desc: '宋徽宗赵佶亲书瘦金体。铁母为铸铁钱的母钱，铜质精良，字口深峻。2024年诚轩春拍铁母以350万成交。被誉为"中国最美钱币"。', era: '两宋' },
   { name: '大观通宝·折十', sub: '北宋 · 瘦金体极品', img: IMG.daGuan, price: '¥5,000-1,850,000', desc: '大观年间(1107-1110)铸。瘦金体书法登峰造极，折十铁母以185万级成交。普通折十品亦因书法精美而受藏家追捧。', era: '两宋' },
   { name: '靖康通宝', sub: '北宋 · 两宋第一珍', img: IMG.jingKang, price: '¥500,000-2,500,000', desc: '靖康元年(1126年)铸，靖康之变后北宋灭亡，铸期仅一年余。折二篆书存世最罕，为两宋钱币之冠。"靖康耻"的历史悲情赋予其特殊意义。', era: '两宋' },
-  { name: '淳化元宝·金质供养钱', sub: '北宋 · 佛教金币', img: IMG.chongNing, price: '¥300,000-800,000', desc: '淳化五年(994年)铸造的金质供养钱，背铸双佛像。1988年五台山出土，是中国最早的佛教题材金币，宗教艺术与钱币艺术的完美结合。', era: '两宋' },
+  { name: '淳化元宝·背双佛金钱', sub: '北宋 · 五台山佛教金币', img: IMG.chunhuaBack, price: '¥300,000-800,000', desc: '淳化五年(994年)铸造的金质供养钱，正面行书"淳化元宝"，背铸两尊并排坐佛。1988年山西忻州五台山出土，金、银、铜三材质皆有，金质最为珍贵。是佛教文化与货币文化结合的巅峰之作，因极高的稀缺性和历史艺术价值，在钱币收藏界享有盛誉。', era: '两宋' },
+
+  // ===== 三国·花钱 =====
+  { name: '千秋万岁·大泉五千', sub: '东吴 · 厌胜花钱', img: IMG.qianQiuWanSui, price: '¥100,000-800,000', desc: '东吴时期铸造的"千秋万岁"厌胜钱(花钱)，面文"千秋万岁"四字，形制源于大泉五千。历代均有铸造，从三国到辽代皆有。存世极罕，是中国最早的祈福祝寿类花钱之一，民俗钱币收藏中的珍品。', era: '三国' },
 
   // ===== 明朝 =====
   { name: '永乐通宝·折五', sub: '明代 · 郑和下西洋', img: IMG.yongle, price: '¥300,000-800,000', desc: '永乐六年(1408年)铸。折五大钱存世极少，传为郑和下西洋赏赐外邦之用。小平永乐通宝随郑和船队遍布东南亚、非洲，是中国最"国际化"的古钱。', era: '明朝' },
   { name: '天启通宝·背十一两', sub: '明代 · 大型折十', img: IMG.tianQi, price: '¥200,000-500,000', desc: '天启年间(1621-1627)铸造。背铸"十一两"表重量，直径47mm+，是明代最大的通宝钱。铸造精整，存世量少，明钱收藏的重要目标。', era: '明朝' },
+  { name: '西王赏功·金币', sub: '明末 · 张献忠大西国', img: IMG.xiWangShangGong, price: '¥5,000,000-8,000,000', desc: '明末大西国张献忠铸造的军功赏赐钱，有金、银、铜三等。金质"西王赏功"存世仅数枚，2017年曾于西泠以230万成交。2016年四川江口沉银遗址出水大量银质品，印证历史。', era: '明朝' },
 
   // ===== 清朝 =====
   { name: '咸丰元宝·宝泉当千', sub: '清代 · 咸丰大钱之王', img: IMG.xianfengDangQian, price: '¥2,000,000-5,800,000', desc: '咸丰三年(1853年)宝泉局铸。直径60mm+，是清代面值最大的制钱。因太平天国战争导致财政危机而铸造虚值大钱。2024年嘉德以580万成交。', era: '清朝' },
@@ -94,17 +126,17 @@ const FAMOUS_COINS = [
   // ===== 机制币·十大珍 =====
   { name: '广东省造·光绪元宝·七三反版', sub: '机制币 · 十大珍之首', img: IMG.guangXu, price: '¥3,500,000-5,800,000', desc: '光绪十五年(1889年)广东钱局试铸。正面英文、背面龙图与正式版相反，故称"反版"。存世仅数枚，是中国机制币第一珍。2024年SBP以575万(SP63)成交。', era: '机制币' },
   { name: '湖北省造·本省·光绪元宝', sub: '机制币 · 十大珍', img: IMG.hubeiSilver, price: '¥2,000,000-3,500,000', desc: '光绪二十年(1894年)湖北银元局试铸。币面铸"本省"二字，后因流通范围争议而删去。存世极罕，2024年Heritage以215万(MS64)成交。', era: '机制币' },
-  { name: '湖南省造·光绪元宝·七钱二分', sub: '机制币 · 十大珍', img: IMG.guangXu, price: '¥1,000,000-2,000,000', desc: '湖南省造七钱二分银币存世极少，为十大珍之一。湖南造币厂设立较晚，正式铸造量极小，大部分为试铸性质。2024年SBP以138万(MS62)成交。', era: '机制币' },
-  { name: '陕西省造·光绪元宝', sub: '机制币 · 十大珍 · 喜敦造币厂', img: IMG.guangXu, price: '¥5,000,000-7,000,000', desc: '英国伯明翰喜敦造币厂代铸样币，未正式发行。因陕西财政困难最终放弃自铸银元计划。存世屈指可数，2024年泓盛以690万(SP67)成交。', era: '机制币' },
-  { name: '浙江省造·光绪元宝·楷书', sub: '机制币 · 十大珍', img: IMG.guangXu, price: '¥1,000,000-2,000,000', desc: '浙江省造光绪元宝楷书版，与常见魏碑体不同。存世仅见数枚，2024年西泠以172万(AU53)成交。是浙江省造龙银中的绝世珍品。', era: '机制币' },
-  { name: '奉天省造·癸卯·光绪元宝·一两', sub: '机制币 · 中国钱币之王 · 十大珍', img: IMG.guangXu, price: '¥46,575,000', desc: '光绪二十九年(癸卯,1903年)奉天机器局铸。以"一两"为单位的罕见计重方式。存世仅此一枚孤品。2022年诚轩春拍以4657.5万元含佣成交，创中国钱币公开拍卖最高纪录。耿爱德/古德曼/张秀青/周大为旧藏。', era: '机制币' },
-  { name: '庚子京局·光绪元宝', sub: '机制币 · 鸿禧美术馆旧藏', img: IMG.guangXu, price: '¥5,000,000-10,000,000', desc: '光绪二十六年(庚子,1900年)京师造币局试铸。因庚子事变(八国联军)造币局被毁而未能发行。鸿禧美术馆《中国近代金银币选集》收录之传世名品，极为珍罕。近年未见公开拍卖。', era: '机制币' },
-  { name: '造币总厂·光绪元宝·七钱二分', sub: '机制币 · 统一国币', img: IMG.guangXu, price: '¥2,800,000-3,800,000', desc: '光绪二十九年(1903年)天津造币总厂铸。是清政府统一币制的尝试，龙纹精美。2024年嘉德以287万(MS64)、Heritage以362万(MS65)成交。', era: '机制币' },
-  { name: '福建官局造·光绪元宝', sub: '机制币 · 十大珍', img: IMG.guangXu, price: '¥400,000-600,000', desc: '福建官银局铸造，存世量极少。福建地处东南沿海，银元需求大但铸量有限。2024年SBP以46万(MS63)成交。', era: '机制币' },
+  { name: '湖南省造·光绪元宝·七钱二分', sub: '机制币 · 十大珍', img: IMG.guangxuSilver, price: '¥1,000,000-2,000,000', desc: '湖南省造七钱二分银币存世极少，为十大珍之一。湖南造币厂设立较晚，正式铸造量极小，大部分为试铸性质。2024年SBP以138万(MS62)成交。', era: '机制币' },
+  { name: '陕西省造·光绪元宝', sub: '机制币 · 十大珍 · 喜敦造币厂', img: IMG.guangxuDragon, price: '¥5,000,000-7,000,000', desc: '英国伯明翰喜敦造币厂代铸样币，未正式发行。因陕西财政困难最终放弃自铸银元计划。存世屈指可数，2024年泓盛以690万(SP67)成交。', era: '机制币' },
+  { name: '浙江省造·光绪元宝·楷书', sub: '机制币 · 十大珍', img: IMG.guangxuSilver, price: '¥1,000,000-2,000,000', desc: '浙江省造光绪元宝楷书版，与常见魏碑体不同。存世仅见数枚，2024年西泠以172万(AU53)成交。是浙江省造龙银中的绝世珍品。', era: '机制币' },
+  { name: '奉天省造·癸卯·光绪元宝·一两', sub: '机制币 · 中国钱币之王 · 十大珍', img: IMG.guangxuDragon, price: '¥46,575,000', desc: '光绪二十九年(癸卯,1903年)奉天机器局铸。以"一两"为单位的罕见计重方式。存世仅此一枚孤品。2022年诚轩春拍以4657.5万元含佣成交，创中国钱币公开拍卖最高纪录。耿爱德/古德曼/张秀青/周大为旧藏。', era: '机制币' },
+  { name: '庚子京局·光绪元宝', sub: '机制币 · 鸿禧美术馆旧藏', img: IMG.kwangtungDragon, price: '¥5,000,000-10,000,000', desc: '光绪二十六年(庚子,1900年)京师造币局试铸。因庚子事变(八国联军)造币局被毁而未能发行。鸿禧美术馆《中国近代金银币选集》收录之传世名品，极为珍罕。近年未见公开拍卖。', era: '机制币' },
+  { name: '造币总厂·光绪元宝·七钱二分', sub: '机制币 · 统一国币', img: IMG.guangxuDragon, price: '¥2,800,000-3,800,000', desc: '光绪二十九年(1903年)天津造币总厂铸。是清政府统一币制的尝试，龙纹精美。2024年嘉德以287万(MS64)、Heritage以362万(MS65)成交。', era: '机制币' },
+  { name: '福建官局造·光绪元宝', sub: '机制币 · 十大珍', img: IMG.guangxuSilver, price: '¥400,000-600,000', desc: '福建官银局铸造，存世量极少。福建地处东南沿海，银元需求大但铸量有限。2024年SBP以46万(MS63)成交。', era: '机制币' },
   { name: '上海一两银币·壹两', sub: '机制币 · 机制币始祖', img: IMG.shanghaiTael, price: '¥15,000,000-20,000,000', desc: '咸丰六年(1856年)上海道台委托英国皇家造币厂代铸。是中国最早的近代机制银币。2024年泓盛春拍以1932万(SP62)成交，创品种最高纪录。', era: '机制币' },
 
   // ===== 机制币·鸿禧美术馆级名品 =====
-  { name: '奉天一两金币', sub: '机制币 · 近代钱币之王 · 鸿禧旧藏', img: IMG.guangXu, price: '传世孤品 (仅存1枚)', desc: '光绪二十九年(1903年)奉天机器局试铸金质样币。全世界仅此一枚，曾为台湾鸿禧美术馆镇馆之宝，被誉为"近代钱币之王"。后转入内地藏家手中，未见公开拍卖。', era: '机制币' },
+  { name: '奉天一两金币', sub: '机制币 · 近代钱币之王 · 鸿禧旧藏', img: IMG.guangxuDragon, price: '传世孤品 (仅存1枚)', desc: '光绪二十九年(1903年)奉天机器局试铸金质样币。全世界仅此一枚，曾为台湾鸿禧美术馆镇馆之宝，被誉为"近代钱币之王"。后转入内地藏家手中，未见公开拍卖。', era: '机制币' },
   { name: '宣统三年·大清银币·长须龙', sub: '机制币 · 宣三三宝', img: IMG.daQingYinBi, price: '¥6,000,000-10,000,000', desc: '宣统三年(1911年)天津造币总厂铸。乔治(L.Giorgi)雕模，龙须长而飘逸故名。与短须龙、反龙并称"宣三三宝"。2023年诚轩以977万(SP64)成交。', era: '机制币' },
   { name: '宣统三年·大清银币·反龙', sub: '机制币 · 宣三三宝', img: IMG.daQingYinBi, price: '¥5,000,000-7,500,000', desc: '龙面与字面互换的试铸样币。由意大利雕刻师乔治设计，龙纹精美绝伦。2024年泓盛以724万(SP66阳叶)成交，SBP以517万(PF64)成交。', era: '机制币' },
   { name: '广东省造·双龙寿字·壹两', sub: '机制币 · 慈禧万寿 · 鸿禧旧藏', img: IMG.shuangLongShou, price: '千万级 (私洽)', desc: '光绪二十年(1894年)为慈禧六十大寿而铸。正面双龙戏珠中间"寿"字，双蝙蝠寓福寿双全。曾为鸿禧美术馆1991年开幕展品，耿爱德/伊莱/张秀青/周大为递藏。2026年泓盛春拍将首度公开上拍。全球存世仅数枚。', era: '机制币' },
@@ -116,7 +148,7 @@ const FAMOUS_COINS = [
   { name: '袁世凯像·飞龙纪念币', sub: '民国 · 共和纪念', img: IMG.yuanShiKai, price: '¥3,000,000-5,000,000', desc: '民国元年(1912年)铸。背面飞龙纹饰精美，为袁世凯就任临时大总统纪念币。签字版更为珍罕，2023年SPINK以460万成交(SP64)。', era: '民国' },
   { name: '洪宪纪元·飞龙', sub: '民国 · 袁世凯称帝', img: IMG.hongxianFeiLong, price: '¥1,500,000-3,500,000', desc: '洪宪元年(1916年)铸。袁世凯称帝，改元洪宪，仅83天即被迫退位。洪宪飞龙铸期极短，存世极罕，是中国近代史的珍贵实物见证。', era: '民国' },
   { name: '段祺瑞像·执政纪念币', sub: '民国 · 北洋政府', img: IMG.duanQirui, price: '¥1,500,000-1,800,000', desc: '民国十三年(1924年)铸。段祺瑞就任中华民国临时执政纪念。光边无齿，铸造精良。2024年诚轩以172万(MS63)、Champion以172万(MS64)成交。', era: '民国' },
-  { name: '曹锟文装像·宪法成立纪念', sub: '民国 · 贿选总统', img: IMG.duanQirui, price: '¥1,200,000-1,500,000', desc: '民国十二年(1923年)铸。曹锟以贿选当选总统后发行。文装(便装)像版本存世极少。2023年Heritage以149万(MS63)成交。', era: '民国' },
+  { name: '曹锟文装像·宪法成立纪念', sub: '民国 · 贿选总统', img: IMG.caoKun, price: '¥1,200,000-1,500,000', desc: '民国十二年(1923年)铸。曹锟以贿选当选总统后发行。文装(便装)像版本存世极少。2023年Heritage以149万(MS63)成交。', era: '民国' },
   { name: '孙中山像·开国纪念币', sub: '民国 · 开国纪念', img: IMG.sunMemento, price: '¥500-3,000,000', desc: '民国元年(1912年)南京造币厂铸。孙中山侧面像，背嘉禾环绕"壹圆"。上五星、下五星版本各有珍罕品。普通版是收藏入门经典。', era: '民国' },
   { name: '孙中山像·船洋·二十三年', sub: '民国 · 中国最美银币', img: IMG.sunYatSen, price: '¥1,000-350,000', desc: '民国二十三年(1934年)铸。背面帆船图案精美，故称"船洋"。由美国费城造币厂代刻模具，铸造精良。MS66以上高分品可达数十万。', era: '民国' },
   { name: '贵州竹子币', sub: '民国 · 地方特色', img: IMG.kweichowAuto, price: '¥500,000-3,000,000', desc: '民国三十八年(1949年)贵州造币厂铸。背面汽车图案独特(另一版为竹子图案)，是中国机制币中最具地方特色的品种之一。存世量少。', era: '民国' },
@@ -144,25 +176,25 @@ const DYNASTIES = [
 const COINS = [
   // ===== 先秦 =====
   { id: 1, dynasty: 'pre-qin', name: '天然贝币', variety: '海贝·黄贝', period: '商代', material: '天然贝壳', img: IMG.beibi, rarity: 3, priceRange: '200-2,000', desc: '中国最早的货币形态，商代即用于交换。以海贝为主，产自南海。', weight: '1-3g', size: '15-25mm' },
-  { id: 2, dynasty: 'pre-qin', name: '铜贝', variety: '包金铜贝·鎏金铜贝', period: '商周', material: '青铜', img: IMG.beibi, rarity: 4, priceRange: '500-15,000', desc: '仿海贝铸造的铜贝，是中国最早的金属铸币。', weight: '2-5g', size: '18-22mm' },
+  { id: 2, dynasty: 'pre-qin', name: '铜贝', variety: '包金铜贝·鎏金铜贝', period: '商周', material: '青铜', img: IMG.tongBei, rarity: 4, priceRange: '500-15,000', desc: '仿海贝铸造的铜贝，是中国最早的金属铸币。', weight: '2-5g', size: '18-22mm' },
   { id: 3, dynasty: 'pre-qin', name: '空首布', variety: '平肩弧足·斜肩弧足·耸肩尖足', period: '春秋', material: '青铜', rarity: 4, priceRange: '3,000-80,000', desc: '春秋时期周王畿及晋、郑、卫等国使用的货币，形似铲。', weight: '20-40g', size: '80-120mm', img: IMG.kongShouBu },
-  { id: 4, dynasty: 'pre-qin', name: '尖足布', variety: '大型·中型·小型', period: '战国', material: '青铜', img: IMG.buBi, rarity: 4, priceRange: '2,000-50,000', desc: '赵国铸造，足端尖锐，多有地名文字。', weight: '8-15g', size: '45-65mm' },
-  { id: 5, dynasty: 'pre-qin', name: '方足布', variety: '大方足·小方足·锐角方足', period: '战国', material: '青铜', img: IMG.buBi, rarity: 3, priceRange: '500-20,000', desc: '韩、赵、魏三国通用货币，方形足部。', weight: '5-12g', size: '40-55mm' },
+  { id: 4, dynasty: 'pre-qin', name: '尖足布', variety: '大型·中型·小型', period: '战国', material: '青铜', img: IMG.jianZuBu, rarity: 4, priceRange: '2,000-50,000', desc: '赵国铸造，足端尖锐，多有地名文字。', weight: '8-15g', size: '45-65mm' },
+  { id: 5, dynasty: 'pre-qin', name: '方足布', variety: '大方足·小方足·锐角方足', period: '战国', material: '青铜', img: IMG.fangZuBu, rarity: 3, priceRange: '500-20,000', desc: '韩、赵、魏三国通用货币，方形足部。', weight: '5-12g', size: '40-55mm' },
   { id: 6, dynasty: 'pre-qin', name: '圆足布', variety: '三孔布·圆足布', period: '战国', material: '青铜', rarity: 5, priceRange: '10,000-500,000', desc: '三孔布极为珍罕，存世不过数十枚。赵国铸造。', weight: '6-8g', size: '50-70mm', img: IMG.sanKongBu },
   { id: 7, dynasty: 'pre-qin', name: '齐刀', variety: '齐大刀·齐法化·即墨法化·安阳法化', period: '战国', material: '青铜', rarity: 4, priceRange: '3,000-150,000', desc: '齐国货币，刀币中最大型者。"齐返邦长法化"六字刀极珍。', weight: '40-60g', size: '170-185mm', img: IMG.qiDao },
   { id: 8, dynasty: 'pre-qin', name: '燕明刀', variety: '圆折·方折·磬折', period: '战国', material: '青铜', img: IMG.daoBi, rarity: 2, priceRange: '300-5,000', desc: '燕国主要货币，面文"明"字，铸量巨大。', weight: '12-18g', size: '125-145mm' },
-  { id: 9, dynasty: 'pre-qin', name: '赵刀', variety: '直刀·甘丹刀·白人刀', period: '战国', material: '青铜', img: IMG.daoBi, rarity: 3, priceRange: '1,000-30,000', desc: '赵国铸造，刀身较直。"甘丹"即邯郸。', weight: '8-15g', size: '120-140mm' },
-  { id: 10, dynasty: 'pre-qin', name: '蚁鼻钱', variety: '鬼脸钱·各字蚁鼻', period: '战国', material: '青铜', rarity: 3, priceRange: '200-8,000', desc: '楚国货币，形似海贝，面有阴文。又称"鬼脸钱"。', weight: '2-5g', size: '15-20mm', img: IMG.yibi },
+  { id: 9, dynasty: 'pre-qin', name: '赵刀', variety: '直刀·甘丹刀·白人刀', period: '战国', material: '青铜', img: IMG.zhaoDaobi, rarity: 3, priceRange: '1,000-30,000', desc: '赵国铸造，刀身较直。"甘丹"即邯郸。', weight: '8-15g', size: '120-140mm' },
+  { id: 10, dynasty: 'pre-qin', name: '蚁鼻钱', variety: '鬼脸钱·各字蚁鼻', period: '战国', material: '青铜', rarity: 3, priceRange: '200-8,000', desc: '楚国货币，形似海贝，面有阴文。又称"鬼脸钱"。', weight: '2-5g', size: '15-20mm', img: IMG.yiBiQian },
   { id: 11, dynasty: 'pre-qin', name: '郢爰', variety: '金版·金饼', period: '战国', material: '黄金', img: IMG.yingYuan, rarity: 5, priceRange: '50,000-2,000,000', desc: '楚国金币，中国最早的黄金铸币。"郢"为楚都城名。', weight: '15-16g每印', size: '方寸' },
-  { id: 12, dynasty: 'pre-qin', name: '圜钱', variety: '圆孔圜钱·方孔圜钱·共字圜钱', period: '战国', material: '青铜', img: IMG.qinBanLiang, rarity: 3, priceRange: '500-30,000', desc: '秦、魏、赵等国铸造。方孔圜钱为后世方孔钱之祖。', weight: '5-12g', size: '30-40mm' },
+  { id: 12, dynasty: 'pre-qin', name: '圜钱', variety: '圆孔圜钱·方孔圜钱·共字圜钱', period: '战国', material: '青铜', img: IMG.yuanQian, rarity: 3, priceRange: '500-30,000', desc: '秦、魏、赵等国铸造。方孔圜钱为后世方孔钱之祖。', weight: '5-12g', size: '30-40mm' },
 
   // ===== 秦朝 =====
   { id: 13, dynasty: 'qin', name: '秦半两', variety: '战国半两·秦统一半两·大型半两', period: '秦代', material: '青铜', rarity: 2, priceRange: '100-20,000', desc: '秦始皇统一全国货币，圆形方孔。"半两"即十二铢（约8g）。', weight: '3-12g', size: '25-35mm', img: IMG.qinBanLiang },
   { id: 14, dynasty: 'qin', name: '秦权钱', variety: '重四两·两甾', period: '秦代', material: '青铜', img: IMG.qinBanLiang, rarity: 5, priceRange: '100,000-1,000,000', desc: '秦代大型权钱，极为珍罕。用于衡量标准。', weight: '20-30g', size: '50-65mm' },
 
   // ===== 两汉 =====
-  { id: 15, dynasty: 'han', name: '汉半两', variety: '八铢半两·四铢半两·榆荚半两', period: '西汉', material: '青铜', img: IMG.wuZhu, rarity: 2, priceRange: '30-5,000', desc: '西汉初沿用秦制，后逐渐减重。文帝四铢半两最为通行。', weight: '1.5-8g', size: '20-28mm' },
-  { id: 16, dynasty: 'han', name: '五铢', variety: '元狩五铢·上林三官五铢·宣帝五铢', period: '西汉', material: '青铜', rarity: 1, priceRange: '10-3,000', desc: '汉武帝元狩五年始铸，中国历史上铸造时间最长的钱币。', weight: '3-4g', size: '25-26mm', img: IMG.wuZhu },
+  { id: 15, dynasty: 'han', name: '汉半两', variety: '八铢半两·四铢半两·榆荚半两', period: '西汉', material: '青铜', img: IMG.qinBanLiang, rarity: 2, priceRange: '30-5,000', desc: '西汉初沿用秦制，后逐渐减重。文帝四铢半两最为通行。', weight: '1.5-8g', size: '20-28mm' },
+  { id: 16, dynasty: 'han', name: '五铢', variety: '元狩五铢·上林三官五铢·宣帝五铢', period: '西汉', material: '青铜', rarity: 1, priceRange: '10-3,000', desc: '汉武帝元狩五年始铸，中国历史上铸造时间最长的钱币。', weight: '3-4g', size: '25-26mm', img: IMG.wuZhuHan },
   { id: 17, dynasty: 'han', name: '王莽·一刀平五千', variety: '金错刀', period: '新朝', material: '铜鎏金', rarity: 5, priceRange: '30,000-500,000', desc: '王莽时期铸造，环柄铸"一刀"二字并嵌金，极为精美。', weight: '20-35g', size: '73mm', img: IMG.wangMangYiDao },
   { id: 18, dynasty: 'han', name: '王莽·货泉', variety: '普通·传形·悬针篆', period: '新朝', material: '青铜', img: IMG.huoQuan, rarity: 2, priceRange: '10-5,000', desc: '王莽末期大量铸行，"泉"取"钱"之意。悬针篆精美者价高。', weight: '2-5g', size: '22-25mm' },
   { id: 19, dynasty: 'han', name: '王莽·大泉五十', variety: '大型·厚肉·契刀形', period: '新朝', material: '青铜', img: IMG.huoQuan, rarity: 2, priceRange: '30-8,000', desc: '当五十枚五铢使用。铸量巨大但版别丰富。', weight: '4-10g', size: '27-28mm' },
@@ -182,31 +214,31 @@ const COINS = [
   { id: 29, dynasty: 'jin-southern', name: '五行大布', variety: '普通·大型·合背', period: '北周', material: '青铜', img: IMG.wuZhu, rarity: 3, priceRange: '100-15,000', desc: '北周武帝建德三年铸。"北周三泉"之一。', weight: '4-8g', size: '27-28mm' },
 
   // ===== 隋朝 =====
-  { id: 30, dynasty: 'sui', name: '开皇五铢', variety: '隋五铢·大样·小样', period: '隋代', material: '青铜', img: IMG.wuZhu, rarity: 2, priceRange: '20-3,000', desc: '隋文帝开皇元年铸。五铢钱最后一个标准形态。', weight: '3-4g', size: '24-25mm' },
+  { id: 30, dynasty: 'sui', name: '开皇五铢', variety: '隋五铢·大样·小样', period: '隋代', material: '青铜', img: IMG.suiWuZhu, rarity: 2, priceRange: '20-3,000', desc: '隋文帝开皇元年铸。五铢钱最后一个标准形态。', weight: '3-4g', size: '24-25mm' },
 
   // ===== 唐朝 =====
   { id: 31, dynasty: 'tang', name: '开元通宝', variety: '初铸大字·容弱·短头元·右挑元·背月·背星', period: '唐代', material: '青铜/银/金', rarity: 1, priceRange: '5-100,000', desc: '唐高祖武德四年铸。废五铢行通宝，开创中国钱币新纪元。', weight: '3.5-4.5g', size: '24-25mm', img: IMG.kaiYuan },
   { id: 32, dynasty: 'tang', name: '乾封泉宝', variety: '普通·阔缘', period: '唐高宗', material: '青铜', img: IMG.kaiYuan, rarity: 3, priceRange: '200-10,000', desc: '乾封元年铸，一枚当十，旋即废止。', weight: '4-6g', size: '25mm' },
-  { id: 33, dynasty: 'tang', name: '乾元重宝', variety: '初铸·当十·当五十·重轮', period: '唐肃宗', material: '青铜', img: IMG.kaiYuan, rarity: 2, priceRange: '20-15,000', desc: '安史之乱后铸造。重轮乾元当五十文极珍。', weight: '4-20g', size: '25-36mm' },
+  { id: 33, dynasty: 'tang', name: '乾元重宝', variety: '初铸·当十·当五十·重轮', period: '唐肃宗', material: '青铜', img: IMG.qianYuan, rarity: 2, priceRange: '20-15,000', desc: '安史之乱后铸造。重轮乾元当五十文极珍。', weight: '4-20g', size: '25-36mm' },
   { id: 34, dynasty: 'tang', name: '得壹元宝', variety: '普通·背月', period: '唐代（史思明）', material: '青铜', img: IMG.deYi, rarity: 4, priceRange: '3,000-80,000', desc: '安史之乱时史思明铸。铸期极短，存世稀少。', weight: '5-8g', size: '36-38mm' },
   { id: 35, dynasty: 'tang', name: '顺天元宝', variety: '普通·背月·背星', period: '唐代（史思明）', material: '青铜', img: IMG.deYi, rarity: 3, priceRange: '500-30,000', desc: '史思明改国号大燕后铸。', weight: '5-8g', size: '36mm' },
 
   // ===== 五代十国 =====
-  { id: 36, dynasty: 'five-dynasties', name: '天福元宝', variety: '铜钱·铁钱', period: '后晋', material: '青铜', img: IMG.kaiYuan, rarity: 3, priceRange: '100-8,000', desc: '后晋高祖天福三年铸。', weight: '2-3g', size: '23mm' },
-  { id: 37, dynasty: 'five-dynasties', name: '天德重宝', variety: '铜钱·背殷', period: '闽·殷', material: '青铜', img: IMG.kaiYuan, rarity: 4, priceRange: '5,000-100,000', desc: '闽国王延政天德三年铸。"背殷"极珍。', weight: '15-30g', size: '40-42mm' },
-  { id: 38, dynasty: 'five-dynasties', name: '乾亨通宝', variety: '铜钱·铅钱', period: '南汉', material: '青铜/铅', img: IMG.kaiYuan, rarity: 3, priceRange: '200-15,000', desc: '南汉刘晟乾亨元年铸。', weight: '2-4g', size: '24mm' },
-  { id: 39, dynasty: 'five-dynasties', name: '天策府宝', variety: '铜钱·铁钱·鎏金', period: '楚', material: '青铜/铁', img: IMG.kaiYuan, rarity: 5, priceRange: '20,000-800,000', desc: '楚马殷天策府铸。古钱五十名珍之一。鎏金者国宝级。', weight: '30-40g', size: '44mm' },
+  { id: 36, dynasty: 'five-dynasties', name: '天福元宝', variety: '铜钱·铁钱', period: '后晋', material: '青铜', img: IMG.tianFu, rarity: 3, priceRange: '100-8,000', desc: '后晋高祖天福三年铸。', weight: '2-3g', size: '23mm' },
+  { id: 37, dynasty: 'five-dynasties', name: '天德重宝', variety: '铜钱·背殷', period: '闽·殷', material: '青铜', img: IMG.kaiYuanSouthernTang, rarity: 4, priceRange: '5,000-100,000', desc: '闽国王延政天德三年铸。"背殷"极珍。', weight: '15-30g', size: '40-42mm' },
+  { id: 38, dynasty: 'five-dynasties', name: '乾亨通宝', variety: '铜钱·铅钱', period: '南汉', material: '青铜/铅', img: IMG.qianHeng, rarity: 3, priceRange: '200-15,000', desc: '南汉刘晟乾亨元年铸。', weight: '2-4g', size: '24mm' },
+  { id: 39, dynasty: 'five-dynasties', name: '天策府宝', variety: '铜钱·铁钱·鎏金', period: '楚', material: '青铜/铁', img: IMG.zhouYuan, rarity: 5, priceRange: '20,000-800,000', desc: '楚马殷天策府铸。古钱五十名珍之一。鎏金者国宝级。', weight: '30-40g', size: '44mm' },
 
   // ===== 两宋 =====
-  { id: 40, dynasty: 'song', name: '宋元通宝', variety: '小平·铁母·背星月', period: '北宋', material: '青铜', img: IMG.chongNing, rarity: 2, priceRange: '10-10,000', desc: '宋太祖建隆元年铸。宋代第一种铸钱。', weight: '3-4g', size: '25mm' },
-  { id: 41, dynasty: 'song', name: '淳化元宝', variety: '行书·草书·楷书·金质', period: '北宋', material: '青铜/金', img: IMG.chongNing, rarity: 2, priceRange: '10-500,000', desc: '太宗御书三体钱。金质淳化极珍。', weight: '3-4g', size: '24mm' },
+  { id: 40, dynasty: 'song', name: '宋元通宝', variety: '小平·铁母·背星月', period: '北宋', material: '青铜', img: IMG.taiPing, rarity: 2, priceRange: '10-10,000', desc: '宋太祖建隆元年铸。宋代第一种铸钱。', weight: '3-4g', size: '25mm' },
+  { id: 41, dynasty: 'song', name: '淳化元宝', variety: '行书·草书·楷书·金质', period: '北宋', material: '青铜/金', img: IMG.chunhuaBack, rarity: 2, priceRange: '10-500,000', desc: '太宗御书三体钱。金质淳化极珍。', weight: '3-4g', size: '24mm' },
   { id: 42, dynasty: 'song', name: '崇宁通宝', variety: '小平·折十·铁母·大字·瘦金体', period: '北宋', material: '青铜', rarity: 2, priceRange: '10-50,000', desc: '宋徽宗御书瘦金体，被誉为"中国最美钱币"。', weight: '10-12g', size: '34-35mm', img: IMG.chongNing },
-  { id: 43, dynasty: 'song', name: '崇宁重宝', variety: '大字·小字·抽示·背星', period: '北宋', material: '青铜', img: IMG.chongNing, rarity: 2, priceRange: '10-20,000', desc: '崇宁年间铸造的折十大钱。版别极多。', weight: '10-12g', size: '34mm' },
+  { id: 43, dynasty: 'song', name: '崇宁重宝', variety: '大字·小字·抽示·背星', period: '北宋', material: '青铜', img: IMG.daGuan, rarity: 2, priceRange: '10-20,000', desc: '崇宁年间铸造的折十大钱。版别极多。', weight: '10-12g', size: '34mm' },
   { id: 44, dynasty: 'song', name: '大观通宝', variety: '小平·折二·折三·折十·铁母', period: '北宋', material: '青铜', rarity: 2, priceRange: '5-80,000', desc: '徽宗大观年间铸。瘦金体登峰造极。', weight: '3-12g', size: '25-42mm', img: IMG.daGuan },
-  { id: 45, dynasty: 'song', name: '宣和通宝', variety: '小平·折二·铁母·长通·离宝', period: '北宋', material: '青铜', img: IMG.chongNing, rarity: 2, priceRange: '10-30,000', desc: '徽宗最后年号钱。篆隶行多种书体。', weight: '3-8g', size: '25-30mm' },
+  { id: 45, dynasty: 'song', name: '宣和通宝', variety: '小平·折二·铁母·长通·离宝', period: '北宋', material: '青铜', img: IMG.jingKang, rarity: 2, priceRange: '10-30,000', desc: '徽宗最后年号钱。篆隶行多种书体。', weight: '3-8g', size: '25-30mm' },
   { id: 46, dynasty: 'song', name: '靖康通宝', variety: '小平·折二·折三·元宝', period: '北宋', material: '青铜', img: IMG.jingKang, rarity: 5, priceRange: '5,000-500,000', desc: '靖康之变，北宋亡。铸期仅一年余，存世极罕。', weight: '3-10g', size: '25-33mm' },
-  { id: 47, dynasty: 'song', name: '建炎通宝', variety: '小平·折二·折三·点建', period: '南宋', material: '青铜', img: IMG.chongNing, rarity: 3, priceRange: '20-20,000', desc: '南宋高宗建炎元年始铸。', weight: '3-8g', size: '25-30mm' },
-  { id: 48, dynasty: 'song', name: '淳祐元宝', variety: '背"当百"·铜·铁', period: '南宋', material: '青铜', img: IMG.chongNing, rarity: 3, priceRange: '50-15,000', desc: '理宗淳祐年间铸。背文"当百"者较珍。', weight: '3-25g', size: '25-50mm' },
+  { id: 47, dynasty: 'song', name: '建炎通宝', variety: '小平·折二·折三·点建', period: '南宋', material: '青铜', img: IMG.taiPing, rarity: 3, priceRange: '20-20,000', desc: '南宋高宗建炎元年始铸。', weight: '3-8g', size: '25-30mm' },
+  { id: 48, dynasty: 'song', name: '淳祐元宝', variety: '背"当百"·铜·铁', period: '南宋', material: '青铜', img: IMG.daGuan, rarity: 3, priceRange: '50-15,000', desc: '理宗淳祐年间铸。背文"当百"者较珍。', weight: '3-25g', size: '25-50mm' },
 
   // ===== 辽金西夏 =====
   { id: 49, dynasty: 'liao-jin-xixia', name: '天禄通宝', variety: '普通·大型', period: '辽', material: '青铜', img: IMG.kaiYuan, rarity: 5, priceRange: '50,000-500,000', desc: '辽世宗天禄年间铸。辽钱珍品。', weight: '3-4g', size: '24mm' },
@@ -251,25 +283,25 @@ const COINS = [
   // ===== 机制币 =====
   { id: 81, dynasty: 'jizhi', name: '光绪元宝·广东省造', variety: '首版·反版龙·寿字', period: '光绪', material: '银', rarity: 3, priceRange: '800-300,000', desc: '中国最早的机制银币之一。', weight: '26.7g', size: '39mm', img: IMG.guangXu },
   { id: 82, dynasty: 'jizhi', name: '光绪元宝·湖北省造', variety: '普通·本省·花边', period: '光绪', material: '银', rarity: 3, priceRange: '500-200,000', desc: '"本省"二字版极珍。', weight: '26.7g', size: '39mm', img: IMG.hubeiSilver },
-  { id: 83, dynasty: 'jizhi', name: '光绪元宝·北洋造34年', variety: '短尾龙·长尾龙·开云版', period: '光绪三十四年', material: '银', img: IMG.guangXu, rarity: 2, priceRange: '500-50,000', desc: '北洋机器局铸。存世最多。', weight: '26.7g', size: '39mm' },
-  { id: 84, dynasty: 'jizhi', name: '造币总厂·光绪元宝', variety: '普通·无点·有点', period: '光绪', material: '银', img: IMG.guangXu, rarity: 3, priceRange: '1,500-80,000', desc: '天津造币总厂铸。', weight: '26.7g', size: '39mm' },
+  { id: 83, dynasty: 'jizhi', name: '光绪元宝·北洋造34年', variety: '短尾龙·长尾龙·开云版', period: '光绪三十四年', material: '银', img: IMG.guangxuSilver, rarity: 2, priceRange: '500-50,000', desc: '北洋机器局铸。存世最多。', weight: '26.7g', size: '39mm' },
+  { id: 84, dynasty: 'jizhi', name: '造币总厂·光绪元宝', variety: '普通·无点·有点', period: '光绪', material: '银', img: IMG.guangxuDragon, rarity: 3, priceRange: '1,500-80,000', desc: '天津造币总厂铸。', weight: '26.7g', size: '39mm' },
   { id: 85, dynasty: 'jizhi', name: '大清银币·宣统三年', variety: '长须龙·短须龙·曲须龙·签字版', period: '宣统三年', material: '银', rarity: 3, priceRange: '1,000-3,000,000', desc: '清末统一国币。签字版L.GIORGI极珍。', weight: '26.9g', size: '39mm', img: IMG.daQingYinBi },
   { id: 86, dynasty: 'jizhi', name: '袁世凯像·壹圆', variety: '三年·八年·九年·十年·签字版', period: '民国', material: '银', rarity: 1, priceRange: '500-5,000,000', desc: '中国近代流通最广的银元。签字版极珍。', weight: '26.6g', size: '39mm', img: IMG.yuanShiKai },
   { id: 87, dynasty: 'jizhi', name: '孙中山像·开国纪念币', variety: '上五星·下五星·六角星·签字版', period: '民国', material: '银', rarity: 2, priceRange: '300-2,000,000', desc: '孙中山像开国纪念银币。', weight: '26.6g', size: '39mm', img: IMG.sunMemento },
   { id: 88, dynasty: 'jizhi', name: '孙中山像·壹圆·船洋', variety: '帆船·三鸟', period: '民国二十三年', material: '银', rarity: 2, priceRange: '300-100,000', desc: '"船洋"。三鸟版因争议被回收，极珍。', weight: '26.7g', size: '39mm', img: IMG.sunYatSen },
   { id: 89, dynasty: 'jizhi', name: '四川卢比', variety: '一至四期', period: '光绪-民国', material: '银', img: IMG.sichuanRupee, rarity: 3, priceRange: '200-30,000', desc: '仿印度卢比在藏区流通。', weight: '11.5g', size: '30mm' },
-  { id: 90, dynasty: 'jizhi', name: '湖南省造·光绪元宝', variety: '普通·阔缘', period: '光绪', material: '银', img: IMG.guangXu, rarity: 4, priceRange: '5,000-500,000', desc: '湖南省铸银元较少，存世稀少。', weight: '26.7g', size: '39mm' },
-  { id: 91, dynasty: 'jizhi', name: '光绪元宝·户部一两', variety: '普通版', period: '光绪二十九年', material: '银', img: IMG.guangXu, rarity: 5, priceRange: '50,000-3,000,000', desc: '户部铸"一两"银币，未正式流通。极珍。', weight: '37.3g', size: '43mm' },
+  { id: 90, dynasty: 'jizhi', name: '湖南省造·光绪元宝', variety: '普通·阔缘', period: '光绪', material: '银', img: IMG.guangxuSilver, rarity: 4, priceRange: '5,000-500,000', desc: '湖南省铸银元较少，存世稀少。', weight: '26.7g', size: '39mm' },
+  { id: 91, dynasty: 'jizhi', name: '光绪元宝·户部一两', variety: '普通版', period: '光绪二十九年', material: '银', img: IMG.guangxuDragon, rarity: 5, priceRange: '50,000-3,000,000', desc: '户部铸"一两"银币，未正式流通。极珍。', weight: '37.3g', size: '43mm' },
   { id: 92, dynasty: 'jizhi', name: '大清铜币', variety: '中心各省·二十文·十文', period: '光绪-宣统', material: '铜', rarity: 1, priceRange: '5-30,000', desc: '清末统一铜元。版别极多。', weight: '5-15g', size: '28-33mm', img: IMG.daQingCopper },
-  { id: 93, dynasty: 'jizhi', name: '光绪元宝·铜元', variety: '广东·湖北·江南·安徽', period: '光绪', material: '铜', img: IMG.daQingCopper, rarity: 1, priceRange: '5-50,000', desc: '各省自铸铜元。飞龙版价高。', weight: '5-10g', size: '28-30mm' },
+  { id: 93, dynasty: 'jizhi', name: '光绪元宝·铜元', variety: '广东·湖北·江南·安徽', period: '光绪', material: '铜', img: IMG.guangxuCopper, rarity: 1, priceRange: '5-50,000', desc: '各省自铸铜元。飞龙版价高。', weight: '5-10g', size: '28-30mm' },
 
   // ===== 民国 =====
   { id: 94, dynasty: 'minguo', name: '孙中山像·三鸟币', variety: '三鸟·金本位·签字版', period: '民国二十一年', material: '银', img: IMG.sunYatSen, rarity: 4, priceRange: '5,000-2,000,000', desc: '因图案争议被快速回收。', weight: '26.7g', size: '39mm' },
   { id: 95, dynasty: 'minguo', name: '袁世凯像·飞龙纪念币', variety: '签字版·无签字', period: '民国', material: '银', img: IMG.yuanShiKai, rarity: 5, priceRange: '50,000-8,000,000', desc: '袁世凯就任纪念币。签字版为大珍。', weight: '26.6g', size: '39mm' },
   { id: 96, dynasty: 'minguo', name: '段祺瑞像·执政纪念币', variety: '普通·签字版', period: '民国', material: '银', rarity: 4, priceRange: '5,000-500,000', desc: '铸量较少。', weight: '26.6g', size: '39mm', img: IMG.duanQirui },
   { id: 97, dynasty: 'minguo', name: '张作霖像·壹圆', variety: '十五年·十六年·大元帅', period: '民国', material: '银', img: IMG.yuanShiKai, rarity: 5, priceRange: '100,000-10,000,000', desc: '民国币第一大珍。十六年大元帅为中国银币之冠。', weight: '26.6g', size: '39mm' },
-  { id: 98, dynasty: 'minguo', name: '徐世昌像·仁寿同登', variety: '无帽·有帽', period: '民国', material: '银', img: IMG.duanQirui, rarity: 4, priceRange: '10,000-800,000', desc: '纪念徐世昌就任大总统。', weight: '26.6g', size: '39mm' },
-  { id: 99, dynasty: 'minguo', name: '曹锟像·宪法纪念币', variety: '普通·签字版', period: '民国', material: '银', img: IMG.duanQirui, rarity: 4, priceRange: '5,000-300,000', desc: '铸量有限。', weight: '26.6g', size: '39mm' },
+  { id: 98, dynasty: 'minguo', name: '徐世昌像·仁寿同登', variety: '无帽·有帽', period: '民国', material: '银', img: IMG.xuShichang, rarity: 4, priceRange: '10,000-800,000', desc: '纪念徐世昌就任大总统。', weight: '26.6g', size: '39mm' },
+  { id: 99, dynasty: 'minguo', name: '曹锟像·宪法纪念币', variety: '普通·签字版', period: '民国', material: '银', img: IMG.caoKun, rarity: 4, priceRange: '5,000-300,000', desc: '铸量有限。', weight: '26.6g', size: '39mm' },
   { id: 100, dynasty: 'minguo', name: '贵州竹子币', variety: '壹圆·半圆·汽车币', period: '民国', material: '银', rarity: 4, priceRange: '3,000-500,000', desc: '"汽车币"背面汽车图案独特，极珍。', weight: '26g', size: '39mm', img: IMG.kweichowAuto },
 ];
 
@@ -332,7 +364,7 @@ const AUCTION_RECORDS = [
   { coin: '光绪元宝·四川省造·七钱二分', dynasty: '机制币', house: 'Heritage', date: '2023-08', grade: 'PCGS AU58', price: '¥345,000', priceUSD: '$47,600', imgUrl: IMG.guangXu },
   { coin: '光绪元宝·奉天省造·癸卯', dynasty: '机制币', house: 'Heritage', date: '2024-01', grade: 'PCGS VF30', price: '¥1,955,000', priceUSD: '$270,000', imgUrl: IMG.guangXu },
   { coin: '袁世凯像·壹圆·十年', dynasty: '民国', house: 'Heritage', date: '2024-08', grade: 'PCGS MS65', price: '¥46,000', priceUSD: '$6,340', imgUrl: IMG.yuanShiKai },
-  { coin: '曹锟文装像·纪念币', dynasty: '民国', house: 'Heritage', date: '2023-08', grade: 'PCGS MS63', price: '¥1,495,000', priceUSD: '$206,000', imgUrl: IMG.duanQirui },
+  { coin: '曹锟文装像·纪念币', dynasty: '民国', house: 'Heritage', date: '2023-08', grade: 'PCGS MS63', price: '¥1,495,000', priceUSD: '$206,000', imgUrl: IMG.caoKun },
   { coin: '广东省造·寿字壹两·双龙', dynasty: '机制币', house: 'Heritage', date: '2024-04', grade: 'PCGS SP55', price: '¥2,300,000', priceUSD: '$317,000', imgUrl: IMG.kwangtungDragon },
   { coin: '袁世凯像·中圆·三年', dynasty: '民国', house: 'Heritage', date: '2024-01', grade: 'PCGS MS63', price: '¥126,500', priceUSD: '$17,400', imgUrl: IMG.yuanShiKai },
   { coin: '光绪元宝·广东省造·七三反版', dynasty: '机制币', house: 'SBP', date: '2024-04', grade: 'PCGS SP63', price: '¥5,750,000', priceUSD: '$793,000', imgUrl: IMG.kwangtungDragon },
@@ -451,9 +483,9 @@ const AUCTION_RECORDS = [
 ];
 
 
-// 古泉雅韵 — 机制币拍卖实时数据接口
+// 古泉祥晋 — 机制币拍卖实时数据接口
 const GUQUAN_YAYU_CONFIG = {
-  name: '古泉雅韵',
+  name: '古泉祥晋',
   desc: '机制币拍卖数据追踪系统',
   apiBase: 'http://localhost:8000',
   totalVolume: '¥5.48亿',
